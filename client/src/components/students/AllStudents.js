@@ -19,7 +19,7 @@ class AllStudents extends Component {
           <div className="studentBox">
             <img />
             <p>
-              <a href="/id/1234567890">Student Name</a>
+              <a href="/id/">Student Name</a>
             </p>
             <p>Campus Name</p>
           </div>
