@@ -14,6 +14,34 @@ import {
   DropdownItem
 } from "reactstrap";
 
+const allStyle = {
+  backgroundColor: "purple",
+  color: "black"
+};
+
+const badgeStyle = {
+  fontSize: "20px"
+};
+
+const navStyle = {
+  float: "right",
+  listStyle: "none",
+  marginTop: "15px"
+};
+
+const itemStyle = {
+  display: "inline-block",
+  marginLeft: "40px"
+};
+
+const linkStyle = {
+  padding: "3px",
+  color: "yellow",
+  textDecoration: "none",
+  textTransform: "uppercase",
+  borderBottom: "2px solid"
+};
+
 class NavigationBar extends Component {
   constructor() {
     super();
@@ -28,14 +56,16 @@ class NavigationBar extends Component {
 
   render() {
     return (
-      <Navbar>
-        <NavbarBrand>School Manager</NavbarBrand>
-        <Nav className="main-nav">
+      <Navbar style={allStyle}>
+        <NavbarBrand style={badgeStyle} className="badge badge-warning">
+          School Manager
+        </NavbarBrand>
+        <Nav style={navStyle} className="main-nav">
           {this.state.options.map(option => (
-            <NavItem key={option.id}>
-              <NavLink>
-                <Link to={option.address}>{option.content}</Link>
-              </NavLink>
+            <NavItem style={itemStyle} key={option.id}>
+              <Link style={linkStyle} to={option.address}>
+                {option.content}
+              </Link>
             </NavItem>
           ))}
         </Nav>
