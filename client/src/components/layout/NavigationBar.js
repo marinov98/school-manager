@@ -15,9 +15,8 @@ import {
 } from "reactstrap";
 
 class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
     this.state = {
       options: [
         { id: 0, content: "Home", address: "/" },
@@ -30,14 +29,13 @@ class NavigationBar extends Component {
   render() {
     return (
       <Navbar>
-        <NavbarBrand>
-          <img src="" alt="Logo" className="logo" />
-        </NavbarBrand>
-
+        <NavbarBrand>School Manager</NavbarBrand>
         <Nav className="main-nav">
           {this.state.options.map(option => (
             <NavItem key={option.id}>
-              <NavLink to={option.address}>{option.content}</NavLink>
+              <NavLink>
+                <Link to={option.address}>{option.content}</Link>
+              </NavLink>
             </NavItem>
           ))}
         </Nav>
