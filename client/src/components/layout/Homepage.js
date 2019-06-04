@@ -4,9 +4,13 @@ const mainPageStyle = {
   color: "black"
 };
 
-const divStyl = {
+const divStyle = {
   backgroundImage: 'url("../../img/students.jpg")',
-  textAlign: "center"
+  textAlign: "center",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "100vh",
+  backgroundAttachment: "fixed"
 };
 
 const badge = {
@@ -30,11 +34,11 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div style={divStyl}>
+      <div style={divStyle}>
         <h1 style={badge} className="badge badge-primary">
           Homepage
         </h1>
-        <div style={mainPageStyle} className="mainPage">
+        <div style={divStyle} className="mainPage">
           <img
             style={imgStyle}
             src={require("../../img/students.jpg")}
