@@ -43,6 +43,7 @@ class AllStudents extends Component {
               <img
                 src={require("../../img/david-cohen.jpg")}
                 style={{ height: "250px", width: "250px" }}
+                alt="David-Cohen"
               />
               <p>
                 <Link to="/id/">
