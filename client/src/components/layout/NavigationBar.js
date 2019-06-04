@@ -35,7 +35,7 @@ const itemStyle = {
 };
 
 const linkStyle = {
-  padding: "6px",
+  padding: "3px",
   color: "yellow",
   textDecoration: "none",
   textTransform: "uppercase",

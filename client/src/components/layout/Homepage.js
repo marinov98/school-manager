@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 
 const mainPageStyle = {
-  textAlign: "center",
-  color: "black",
-  height: "100px"
+  color: "black"
 };
 
-const headerStyle = {
+const divStyl = {
+  backgroundImage: 'url("../../img/students.jpg")',
+  textAlign: "center"
+};
+
+const badge = {
   margin: "10px",
-  textAlign: "center",
-  background: "lightblue",
-  fontSize: "30px"
+  fontSize: "50px"
+};
+
+const imgStyle = {
+  width: "1500px",
+  marginLeft: "50px"
 };
 
 class Homepage extends Component {
@@ -24,12 +30,16 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={divStyl}>
+        <h1 style={badge} className="badge badge-primary">
+          Homepage
+        </h1>
         <div style={mainPageStyle} className="mainPage">
-          <h1 style={headerStyle} className="badge badge-primary">
-            Homepage
-          </h1>
-          <img src={require("../../img/students.jpg")} alt="students" />
+          <img
+            style={imgStyle}
+            src={require("../../img/students.jpg")}
+            alt="students"
+          />
         </div>
       </div>
     );
