@@ -8,6 +8,7 @@ import NavigationBar from "./components/layout/NavigationBar";
 import Homepage from "./components/layout/Homepage";
 import AllStudents from "./components/students/AllStudents";
 import Campuses from "./components/campuses/Campuses";
+import SingleCampus from "./components/campuses/SingleCampus"
 
 const routing = (
   <Router>
@@ -18,6 +19,7 @@ const routing = (
       <Route exact path="/" component={Homepage} />
       <Route path="/allstudents" component={AllStudents} />
       <Route path="/allcampuses" component={Campuses} />
+      <Route path="./singlecampus" component={SingleCampus}/>
     </div>
   </Router>
 );
