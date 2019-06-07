@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import NavigationBar from "./components/layout/NavigationBar";
 import Homepage from "./components/layout/Homepage";
 import AllStudents from "./components/students/AllStudents";
+import Campuses from "./components/campuses/Campuses";
 
 const routing = (
   <Router>
@@ -16,6 +17,7 @@ const routing = (
       </div>
       <Route exact path="/" component={Homepage} />
       <Route path="/allstudents" component={AllStudents} />
+      <Route path="/allcampuses" component={Campuses} />
     </div>
   </Router>
 );
