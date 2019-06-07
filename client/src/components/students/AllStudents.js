@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class AllStudents extends Component {
   constructor() {
@@ -40,11 +42,11 @@ class AllStudents extends Component {
                 justifyContent: "center"
               }}
             >
-              <img
+              {/* <img
                 src={require("../../img/david-cohen.jpg")}
                 style={{ height: "250px", width: "250px" }}
                 alt="David-Cohen"
-              />
+              /> */}
               <p>
                 <Link to="/id/">
                   <h2>{student.name}</h2>
@@ -59,4 +61,17 @@ class AllStudents extends Component {
   }
 }
 
-export default AllStudents;
+AllStudents.propTypes = {
+  students: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => ({
+  students: state.students
+});
+
+const actions = { getStudents };
+
+export default connect(
+  mapStateToProps,
+  actions
+)(AllStudents);
