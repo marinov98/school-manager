@@ -1,8 +1,9 @@
-import React from 'react';
-import './AllStudents.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./AllStudents.css";
 
-const AllStudentsView = (props) => {
-  const { currentPlayer, handleChange, handleSubmit, handleReset, playerInfo } = props;
+const AllStudentsView = props => {
+  const { students } = props;
   return (
     <div className="AllStudents">
       <div style={{ textAlign: "center" }}>
@@ -14,16 +15,16 @@ const AllStudentsView = (props) => {
             justifyContent: "center"
           }}
         >
-          {this.state.students.map(student => (
+          {students.map(student => (
             <div className="studentBox">
               <p>
                 <Link to="/id/">
                   <h2>{student.name}</h2>
                 </Link>
               </p>
-              <h3>{student.campus}</h3>
+              <h3>{student.team_name}</h3>
             </div>
-          ))}   
+          ))}
         </div>
       </div>
     </div>
