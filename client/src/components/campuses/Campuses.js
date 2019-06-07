@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class Campuses extends Component {
     constructor(props) {
@@ -47,8 +48,10 @@ class Campuses extends Component {
         if (this.state.clickedSearch === "true") {
             let displayCampuses = this.state.filteredCampuses.map((element) =>
                 <li key={element.Name}>
-                    <p>Campus Name: {element.Name}</p>
-                    <p>Campus Location: {element.Location}</p>
+                    <Link to="/Name/">
+                        <p>Campus Name: {element.Name}</p>
+                        <p>Campus Location: {element.Location}</p>
+                    </Link>
                 </li>
             );
             return <div>
@@ -58,8 +61,10 @@ class Campuses extends Component {
         else {
             let displayCampuses = this.state.allCampuses.map((element) =>
                 <li key={element.Name}>
-                    <p>Campus Name: {element.Name}</p>
-                    <p>Campus Location: {element.Location}</p>
+                    <Link to="/Name/">
+                        <p>Campus Name: {element.Name}</p>
+                        <p>Campus Location: {element.Location}</p>
+                    </Link>
                 </li>
             );
             return <div>
