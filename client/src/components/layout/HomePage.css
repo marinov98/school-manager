@@ -1,0 +1,104 @@
+/* HomePage Component */
+.home {
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.7)),
+      to(rgba(0, 0, 0, 0.7))
+    ),
+    url("../..img/students.jpg");
+
+  background-image: linear-gradient(
+      rgba(47, 47, 47, 0.7),
+      rgba(26, 25, 25, 0.7)
+    ),
+    url("../../img/students.jpg");
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.main-page {
+  color: black;
+}
+
+.badge {
+  margin: 10px;
+  font-size: 50px;
+}
+
+.CopyRight {
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+}
+
+img {
+  width: 1500px;
+  margin-left: 50px;
+}
+
+.logo {
+  height: 70px;
+  width: 120px;
+  float: left;
+}
+
+/* NavBar Component */
+
+.NavBar {
+  background-color: lightskyblue;
+  color: black;
+}
+
+.badge-primary {
+  font-size: 30px;
+}
+
+a:link,
+a:visited {
+  color: darkred;
+  margin: 10px;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid coral;
+  -webkit-transition: border-bottom 0.5s, color 0.5s;
+  transition: border-bottom 0.4s, color 0.4s;
+}
+
+a:active,
+a:hover {
+  color: darkblue;
+  font-size: 20px;
+  border-bottom: 5px solid darkcyan;
+}
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 15px;
+}
+
+.main-nav NavItem {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav NavItem a:link,
+.main-nav NavItem a:visited {
+  padding: 6px 0;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 90%;
+  border-bottom: 2px solid;
+}
+
+.main-nav NavItem a:active,
+.main-nav NavItem a:hover {
+  border-bottom: 2px solid lightcoral;
+  color: darkcyan;
+}
