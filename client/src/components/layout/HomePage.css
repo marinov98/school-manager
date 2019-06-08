@@ -58,8 +58,8 @@ img {
   font-size: 30px;
 }
 
-a:link,
-a:visited {
+.NavBar a:link,
+.NavBar a:visited {
   color: darkred;
   margin: 10px;
   text-decoration: none;
@@ -69,8 +69,8 @@ a:visited {
   transition: border-bottom 0.4s, color 0.4s;
 }
 
-a:active,
-a:hover {
+.NavBar a:active,
+.NavBar a:hover {
   color: darkblue;
   font-size: 20px;
   border-bottom: 5px solid darkcyan;
