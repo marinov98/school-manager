@@ -27,8 +27,5 @@ export const getStudentsThunk = () => dispatch => {
 };
 
 export const addStudentThunk = newStudent => dispatch => {
-  return axios
-    .post(`https://nba-players.herokuapp.com/players-stats/`, newStudent)
-    .then(res => dispatch(addStudent(newStudent)))
-    .catch(err => console.log(err));
+  return dispatch(addStudent(newStudent)); //add axios post
 };

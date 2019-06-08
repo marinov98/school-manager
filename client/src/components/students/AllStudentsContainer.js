@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import AddStudentForm from "./AddStudentForm";
 import AllStudentsView from "./AllStudentsView";
 import { getStudentsThunk } from "../../actions/studentActions";
 
@@ -13,7 +14,12 @@ class AllStudentsContainer extends Component {
   };
 
   render() {
-    return <AllStudentsView students={this.props.student.students} />;
+    return (
+      <div className="allStudents">
+        <AddStudentForm />
+        <AllStudentsView students={this.props.student.students} />
+      </div>
+    );
   }
 }
 
