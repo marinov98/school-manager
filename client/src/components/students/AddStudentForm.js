@@ -11,7 +11,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import "./AllStudents.css";
 
 class AddStudentForm extends Component {
   constructor(props) {
@@ -34,9 +33,9 @@ class AddStudentForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     if (
-      this.state.firstName != this.initialState.firstName &&
-      this.state.lastName != this.initialState.lastName &&
-      this.state.campus != this.initialState.campus
+      this.state.firstName !== this.initialState.firstName &&
+      this.state.lastName !== this.initialState.lastName &&
+      this.state.campus !== this.initialState.campus
     ) {
       let newStudent = {
         firstName: this.state.firstName,
@@ -45,7 +44,7 @@ class AddStudentForm extends Component {
       };
       this.props.addStudent(newStudent);
     } else {
-      alert("Please fill out all appropriate fields");
+      alert("Please fill out all the appropriate fields");
     }
   };
 
@@ -58,7 +57,7 @@ class AddStudentForm extends Component {
   render() {
     return (
       <div className="addStudentForm">
-        <h1>Add New Student</h1>
+        <h1>New Student</h1>
         <Form>
           <Input
             type="text"
