@@ -1,10 +1,7 @@
-.studentBox {
-  border: 1px solid black;
-  padding: 25px;
-  margin: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.allStudents * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .addStudentFormToggleButton {
@@ -13,6 +10,7 @@
   width: 200px;
   background-color: lightgreen;
   color: black;
+  padding: 10px;
 }
 
 .allStudentsView {
@@ -53,4 +51,35 @@
 
 .addStudentForm input[type="submit"] {
   background-color: lightgreen;
+}
+
+.studentBox {
+  border: 3px solid black;
+  margin: 25px;
+  height: 600px;
+  width: 400px;
+}
+
+.studentName {
+  height: 50px;
+  background-color: white;
+}
+
+.studentName a {
+  line-height: 50px;
+}
+
+.studentCampus {
+  height: 50px;
+  background-color: #f5f5f5;
+}
+
+.studentCampus h3 {
+  line-height: 50px;
+}
+
+.studentImage {
+  height: 494px;
+  width: 100%;
+  background-color: lightskyblue;
 }
