@@ -46,6 +46,7 @@
 .addStudentForm .dropdown-toggle,
 .addStudentForm .dropdown-item {
   width: 400px;
+  padding: 5px;
   text-align: center;
 }
 
