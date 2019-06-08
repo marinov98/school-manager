@@ -1,32 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
+import "./index.css";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import store from "./store";
 
-import NavigationBar from "./components/layout/NavigationBar";
-import Homepage from "./components/layout/Homepage";
-import AllStudents from "./components/students/AllStudents";
-import Campuses from "./components/campuses/Campuses";
-import SingleCampus from "./components/campuses/SingleCampus"
-
-const routing = (
-  <Router>
-    <div>
-      <div>
-        <NavigationBar />
-      </div>
-      <Route exact path="/" component={Homepage} />
-      <Route path="/allstudents" component={AllStudents} />
-      <Route path="/allcampuses" component={Campuses} />
-      <Route path="./singlecampus" component={SingleCampus}/>
-    </div>
-  </Router>
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
-ReactDOM.render(routing, document.getElementById("root"));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
