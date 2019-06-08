@@ -5,6 +5,11 @@ import AllStudentsView from "./AllStudentsView";
 import { getStudentsThunk } from "../../actions/studentActions";
 import "./AllStudents.css";
 import { Button } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronCircleDown,
+  faChevronCircleUp
+} from "@fortawesome/free-solid-svg-icons";
 
 class AllStudentsContainer extends Component {
   constructor() {
@@ -24,6 +29,14 @@ class AllStudentsContainer extends Component {
     }
   };
 
+  displayArrow = () => {
+    if (!this.state.toggleForm) {
+      return <FontAwesomeIcon icon={faChevronCircleDown} />;
+    } else {
+      return <FontAwesomeIcon icon={faChevronCircleUp} />;
+    }
+  };
+
   toggleForm = () => {
     this.setState(prevState => ({
       toggleForm: !prevState.toggleForm
@@ -37,7 +50,7 @@ class AllStudentsContainer extends Component {
           className="addStudentFormToggleButton"
           onClick={this.toggleForm}
         >
-          Add New Student
+          Add New Student {this.displayArrow()}
         </Button>
         {this.displayForm()}
         <AllStudentsView students={this.props.student.students} />
