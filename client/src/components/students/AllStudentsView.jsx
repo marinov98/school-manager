@@ -15,13 +15,11 @@ const AllStudentsView = props => {
             justifyContent: "center"
           }}
         >
-          {students.map(student => (
-            <div className="studentBox">
-              <p>
-                <Link to="/id/">
-                  <h2>{student.name}</h2>
-                </Link>
-              </p>
+          {students.map((student, index) => (
+            <div className="studentBox" key={index}>
+              <h2>
+                <Link to="/id/">{student.name}</Link>
+              </h2>
               <h3>{student.team_name}</h3>
             </div>
           ))}

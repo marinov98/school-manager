@@ -7,7 +7,7 @@ class AllStudentsContainer extends Component {
   constructor() {
     super();
     this.state = {
-      students: []
+      newStudent: {}
     };
     this.blankState = this.state;
   }
@@ -17,12 +17,12 @@ class AllStudentsContainer extends Component {
   };
 
   render() {
-    return <AllStudentsView students={this.props.students} />;
+    return <AllStudentsView students={this.props.student.students} />;
   }
 }
 
 const mapStateToProps = state => ({
-  students: state.students
+  student: state.student
 });
 
 const mapDispatchToProps = dispatch => {

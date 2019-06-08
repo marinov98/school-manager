@@ -1,3 +1,5 @@
+import { GET_STUDENTS, ADD_STUDENT } from "../actions/types";
+
 const initialState = {
   students: []
 };
