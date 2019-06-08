@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./SingleCampus.css";
-import AllStudents from "../../components/students/AllStudentsContainer";
+import AllStudents from "../students/AllStudentsContainer";
 class SingleCampus extends Component {
   constructor(props) {
     super(props);

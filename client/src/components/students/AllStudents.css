@@ -6,3 +6,51 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.addStudentFormToggleButton {
+  display: block;
+  margin: 50px auto;
+  width: 200px;
+  background-color: lightgreen;
+  color: black;
+}
+
+.allStudentsView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-top: -25px;
+}
+
+.addStudentForm {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 50px;
+  background-color: lightskyblue;
+  border-radius: 25px;
+}
+
+.addStudentForm h1 {
+  padding-bottom: 25px;
+}
+
+.addStudentForm input {
+  text-align: center;
+  border-radius: 3px;
+  background-color: #dadada;
+  border: 1px solid black;
+  color: black;
+}
+
+.addStudentForm .dropdown-toggle,
+.addStudentForm .dropdown-item {
+  width: 400px;
+  text-align: center;
+}
+
+.addStudentForm input[type="submit"] {
+  background-color: lightgreen;
+}
