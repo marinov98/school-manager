@@ -6,10 +6,6 @@ import { getStudentsThunk } from "../../actions/studentActions";
 class AllStudentsContainer extends Component {
   constructor() {
     super();
-    this.state = {
-      newStudent: {}
-    };
-    this.blankState = this.state;
   }
 
   componentDidMount = () => {
