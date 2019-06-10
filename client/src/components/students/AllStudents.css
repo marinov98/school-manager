@@ -49,6 +49,7 @@
   width: 400px;
   padding: 5px;
   text-align: center;
+  border: 1px solid black;
 }
 
 .addStudentForm input[type="submit"] {
