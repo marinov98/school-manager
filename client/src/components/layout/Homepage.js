@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./HomePage.css";
+import SingleStudent from "../students/SingleStudent";
 
 // const mainPageStyle = {
 //   color: "black"
@@ -44,6 +45,7 @@ class Homepage extends Component {
           </p>
         </div>{" "}
         />
+        <SingleStudent name="Bob Anderson" gps={3.6} registered={true} id={5} />
       </div>
     );
   }
