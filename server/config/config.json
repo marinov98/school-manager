@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "password123",
-    "database": "todos-dev",
+    "database": "school_manager",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": false
