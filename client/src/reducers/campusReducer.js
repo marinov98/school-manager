@@ -4,7 +4,11 @@ const initialState = {
     campuses: [{
         "Name": "Hunter College",
         "Location": "Manhattan",
-        "CurrentStudents": [{ "ID": 1, "Name": "Mary Fan" }, { "ID": 2, "Name": "Angela Lim" }, { "ID": 3, "Name": "Kris Wu" }]
+        "CurrentStudents": [{ "ID": 1, "Name": "Mary Fan" }, { "ID": 2, "Name": "Angela Lim" }, { "ID": 3, "Name": "Kris Wu" }],
+        "Address": "695 Park Ave, New York, NY 10065",
+        "Description": "Hunter College is one of the constituent colleges of the City University of New York, an American public university.",
+        "ImageURL": "../../img/hunter-college.jpg"
+
     },
     {
         "Name": "Baruch College",
@@ -68,6 +72,13 @@ export default (state = initialState, action) => {
                 ...state,
                 campuses: newArray
             };
+
+        // case CHANGE_NAME:
+        //     return{
+        //         ...state,
+        //
+        //     }
+
         default:
             return state;
     }

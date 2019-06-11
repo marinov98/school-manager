@@ -1,4 +1,4 @@
-import { GET_CAMPUSES, ADD_CAMPUS, SEARCH_CAMPUS, DELETE_CAMPUS } from "./types";
+import { GET_CAMPUSES, ADD_CAMPUS, SEARCH_CAMPUS, DELETE_CAMPUS} from "./types";
 
 // const getCampuses = campuses => {
 //     return {
@@ -28,9 +28,21 @@ const deleteCampus = campusName => {
     };
 };
 
+// const changeName = campusName =>{
+//     return{
+//         type: CHANGE_NAME,
+//         payload: campusName
+//     }
+// }
+
 export const deleteCampusThunk = campusName => dispatch => {
     return dispatch(deleteCampus(campusName));
 };
+
+// export const changeNameThunk = campusName => dispatch => {
+//     return dispatch(changeName(campusName));
+// };
+
 
 // const getCampus = campusName => {
 //     return {
