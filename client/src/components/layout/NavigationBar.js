@@ -15,34 +15,6 @@ import {
 } from "reactstrap";
 import "./HomePage.css";
 
-// const allStyle = {
-//   backgroundColor: "purple",
-//   color: "black"
-// };
-
-// const badgeStyle = {
-//   fontSize: "20px"
-// };
-
-// const navStyle = {
-//   float: "right",
-//   listStyle: "none",
-//   marginTop: "15px"
-// };
-
-// const itemStyle = {
-//   display: "inline-block",
-//   marginLeft: "40px"
-// };
-
-// const linkStyle = {
-//   padding: "3px",
-//   color: "yellow",
-//   textDecoration: "none",
-//   textTransform: "uppercase",
-//   borderBottom: "2px solid"
-// };
-
 class NavigationBar extends Component {
   constructor() {
     super();
