@@ -21,7 +21,7 @@ export default class App extends Component {
             campus="Fung University"
             id={5}
           /> */}
-          <Route path="/" component={SingleStudent}>
+          <Route path="/" component={Homepage}>
             <Route path="/allstudents" component={AllStudents} />
             <Route path="/allcampuses" component={AllCampuses} />
             <Route path="/singlecampus" component={SingleCampus} />
