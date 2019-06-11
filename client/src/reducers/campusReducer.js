@@ -43,30 +43,18 @@ export default (state = initialState, action) => {
                 filteredCampuses: filteredArray
             };
         case DELETE_CAMPUS:
-
-            // var apps = [{id:34,name:'My App',another:'thing'},{id:37,name:'My New App',another:'things'}];
-
-            // // get index of object with id:37
-            // var removeIndex = apps.map(function(item) { return item.id; }).indexOf(37);
-
-            // // remove object
-            // apps.splice(removeIndex, 1);
-
-
+            let copyOfCampusArray = state.campuses;
             let targetCampus = action.payload;
-            let indexOfTargetCampus = 1;
-            // state.campuses.map(function (campus) { return campus.Name; }).indexOf(targetCampus);
 
-            // for (let i = 0; i < state.campuses.length; i++) {
-            //     if (state.campuses[i].Name === targetCampus) {
-            //         indexOfTargetCampus = i;
-            //     }
-            // }
-            let newArray = state.campuses.splice(indexOfTargetCampus, 1);
-            console.log(newArray);
+
+            console.log(action.payload);
+
+            let indexOfTargetCampus = copyOfCampusArray.findIndex(campus => campus.Name === targetCampus);
+            console.log(indexOfTargetCampus)
+            copyOfCampusArray.splice(indexOfTargetCampus, 1);
             return {
                 ...state,
-                campuses: newArray
+                campuses: copyOfCampusArray
             };
         default:
             return state;

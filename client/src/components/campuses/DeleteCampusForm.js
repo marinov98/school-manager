@@ -8,7 +8,7 @@ class DeleteCampusForm extends Component {
         this.state = {
             campusName: ""
         };
-        this.initialState = this.state;
+        // this.initialState = this.state;
     }
 
     handleChange = e => {
@@ -19,11 +19,11 @@ class DeleteCampusForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        if (this.state.Name !== this.initialState.Name) {
-            this.props.deleteCampus(this.state.campusName);
-        } else {
-            alert("Please fill out all the appropriate fields");
-        }
+        // if (this.state.Name !== this.initialState.Name) {
+        this.props.deleteCampus(this.state.campusName);
+        // } else {
+        //     alert("Please fill out all the appropriate fields");
+        // }
     };
 
     render() {
@@ -32,7 +32,7 @@ class DeleteCampusForm extends Component {
                 <form>
                     <input
                         type="text"
-                        name="Name"
+                        name="campusName"
                         placeholder="Campus Name"
                         onChange={this.handleChange}
                     />
