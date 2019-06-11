@@ -1,27 +1,28 @@
 import React, { Component } from "react";
+import "./HomePage.css";
 
-const mainPageStyle = {
-  color: "black"
-};
+// const mainPageStyle = {
+//   color: "black"
+// };
 
-const divStyle = {
-  backgroundImage: 'url("../../img/students.jpg")',
-  textAlign: "center",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  height: "100vh",
-  backgroundAttachment: "fixed"
-};
+// const divStyle = {
+//   backgroundImage: 'url("../../img/students.jpg")',
+//   textAlign: "center",
+//   backgroundSize: "cover",
+//   backgroundPosition: "center",
+//   height: "100vh",
+//   backgroundAttachment: "fixed"
+// };
 
-const badge = {
-  margin: "10px",
-  fontSize: "50px"
-};
+// const badge = {
+//   margin: "10px",
+//   fontSize: "50px"
+// };
 
-const imgStyle = {
-  width: "1500px",
-  marginLeft: "50px"
-};
+// const imgStyle = {
+//   width: "1500px",
+//   marginLeft: "50px"
+// };
 
 class Homepage extends Component {
   constructor() {
@@ -34,17 +35,15 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div style={divStyle}>
-        <h1 style={badge} className="badge badge-primary">
-          Homepage
-        </h1>
-        <div style={divStyle} className="mainPage">
-          <img
-            style={imgStyle}
-            src={require("../../img/students.jpg")}
-            alt="students"
-          />
-        </div>
+      <div className="home">
+        <h1 className="badge badge-danger">Homepage</h1>
+        <div className="mainPage">
+          <p className="CopyRight">
+            Copyright &copy; 2019 by Tony Fung, Marin Marinov, Angela Lim, Mary
+            Fan{" "}
+          </p>
+        </div>{" "}
+        />
       </div>
     );
   }

@@ -13,34 +13,35 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import "./HomePage.css";
 
-const allStyle = {
-  backgroundColor: "purple",
-  color: "black"
-};
+// const allStyle = {
+//   backgroundColor: "purple",
+//   color: "black"
+// };
 
-const badgeStyle = {
-  fontSize: "20px"
-};
+// const badgeStyle = {
+//   fontSize: "20px"
+// };
 
-const navStyle = {
-  float: "right",
-  listStyle: "none",
-  marginTop: "15px"
-};
+// const navStyle = {
+//   float: "right",
+//   listStyle: "none",
+//   marginTop: "15px"
+// };
 
-const itemStyle = {
-  display: "inline-block",
-  marginLeft: "40px"
-};
+// const itemStyle = {
+//   display: "inline-block",
+//   marginLeft: "40px"
+// };
 
-const linkStyle = {
-  padding: "3px",
-  color: "yellow",
-  textDecoration: "none",
-  textTransform: "uppercase",
-  borderBottom: "2px solid"
-};
+// const linkStyle = {
+//   padding: "3px",
+//   color: "yellow",
+//   textDecoration: "none",
+//   textTransform: "uppercase",
+//   borderBottom: "2px solid"
+// };
 
 class NavigationBar extends Component {
   constructor() {
@@ -56,16 +57,18 @@ class NavigationBar extends Component {
 
   render() {
     return (
-      <Navbar style={allStyle}>
-        <NavbarBrand style={badgeStyle} className="badge badge-warning">
-          School Manager
+      <Navbar className="NavBar">
+        <NavbarBrand>
+          <img
+            className="logo"
+            src={require("../../img/logo_file.png")}
+            alt="logo"
+          />
         </NavbarBrand>
-        <Nav style={navStyle} className="main-nav">
+        <Nav className="main-nav">
           {this.state.options.map(option => (
-            <NavItem style={itemStyle} key={option.id}>
-              <Link style={linkStyle} to={option.address}>
-                {option.content}
-              </Link>
+            <NavItem key={option.id}>
+              <Link to={option.address}>{option.content}</Link>
             </NavItem>
           ))}
         </Nav>
