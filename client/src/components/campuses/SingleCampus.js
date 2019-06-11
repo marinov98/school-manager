@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./SingleCampus.css";
 import AllStudents from "../students/AllStudentsContainer";
 class SingleCampus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-campus: "Hunter College",
-          address: "695 Park Ave, New York, NY 10065",
-          description: "Hunter College is one of the constituent colleges of the City University of New York, an American public university.",
-          imageURL: "../../img/hunter-college.jpg",
+      campus: "Hunter College",
+      address: "695 Park Ave, New York, NY 10065",
+      description: "Hunter College is one of the constituent colleges of the City University of New York, an American public university.",
+      imageURL: "../../img/hunter-college.jpg",
       isEditOn: true,
 
       tempAddress: "",
@@ -20,7 +21,11 @@ campus: "Hunter College",
   handleClick = () => {
     this.setState(prevState => ({
       isEditOn: !prevState.isEditOn,
-      tempAddress: this.state.address
+      tempName: this.state.campus,
+      tempAddress: this.state.address,
+      tempUrl: this.state.imageURL,
+      tempDescription: this.state.description
+
     }));
   };
   handleChange = event => {
@@ -31,7 +36,10 @@ campus: "Hunter College",
   handleSubmit = event => {
     this.setState(prevState => ({
       isEditOn: !prevState.isEditOn,
-      address: this.state.tempAddress
+      campus: this.state.tempName,
+      address: this.state.tempAddress,
+      imageURL: this.state.tempUrl,
+      description: this.state.tempDescription
     }));
     event.preventDefault();
   };
