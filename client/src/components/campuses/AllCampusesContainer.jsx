@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AddCampusForm from "./AddCampusForm";
+import DeleteCampusForm from "./DeleteCampusForm";
 import AllCampusesView from "./AllCampusesView";
 import SearchCampus from "./SearchCampus";
 
@@ -9,7 +10,8 @@ class AllCampusesContainer extends Component {
         super();
         this.state = {
             toggleSearch: false,
-            toggleForm: false
+            toggleForm: false,
+            toggleDeleteForm: false
         };
     }
 
@@ -42,6 +44,12 @@ class AllCampusesContainer extends Component {
         }
     };
 
+    displayDeleteForm = () => {
+        if (this.state.toggleDeleteForm) {
+            return <DeleteCampusForm />;
+        }
+    };
+
     toggleSearch = () => {
         this.setState(prevState => ({
             toggleSearch: !prevState.toggleSearch
@@ -54,6 +62,12 @@ class AllCampusesContainer extends Component {
         }));
     };
 
+    toggleDeleteForm = () => {
+        this.setState(prevState => ({
+            toggleDeleteForm: !prevState.toggleDeleteForm
+        }));
+    };
+
     render() {
         if (!this.state.toggleSearch) {
             return (
@@ -63,6 +77,8 @@ class AllCampusesContainer extends Component {
                     {this.displayCampuses()}
                     <button onClick={this.toggleForm}> Add New Campus </button>
                     {this.displayForm()}
+                    <button onClick={this.toggleDeleteForm}> Delete Campus </button>
+                    {this.displayDeleteForm()}
                 </div>
             );
         }
