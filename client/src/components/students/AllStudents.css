@@ -92,3 +92,88 @@
   width: 100%;
   background-color: lightskyblue;
 }
+/* SINGLE STUDENT */
+
+.student {
+  background-color: burlywood;
+}
+
+.studentname {
+  font-size: 70px;
+  width: 90px;
+  margin: 5px;
+}
+
+.studentGPA {
+  margin-top: 70px;
+  font-size: 50px;
+  color: red;
+}
+
+.studentphoto {
+  height: 350px;
+  width: 450px;
+  margin: 20px;
+}
+
+.badge {
+  font-size: 50px;
+  height: 80px;
+}
+
+select {
+  height: 60px;
+  font-size: 25px;
+  width: 350px;
+  margin-top: 100px;
+}
+
+.campusPhoto {
+  margin: 10px;
+  height: auto;
+  width: auto;
+}
+
+.registered {
+  font-size: 25px;
+}
+
+.pageTop {
+  background-color: beige;
+}
+
+.pageBottom {
+  background-color: rgb(235, 235, 187);
+}
+
+.edit {
+  margin-left: 50px;
+}
+
+.edit,
+.delete {
+  margin-top: 250px;
+  font-size: 35px;
+  height: 55px;
+}
+
+.campusBox {
+  background-color: grey;
+  margin: 10px;
+}
+
+.btn-changeCampus {
+  font-size: 30px;
+}
+
+.campusName {
+  margin-left: 80px;
+  font-size: 30px;
+  color: crimson;
+  transition: color 0.5s;
+}
+
+.campusName a:active,
+.campusName a:hover {
+  color: blueviolet;
+}
