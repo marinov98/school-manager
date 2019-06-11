@@ -5,15 +5,16 @@ class SingleCampus extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      school: [
-        {
-          campus: "Hunter College",
-          imageURL: "../../img/hunter-college.jpg"
-        }
-      ],
+campus: "Hunter College",
+          address: "695 Park Ave, New York, NY 10065",
+          description: "Hunter College is one of the constituent colleges of the City University of New York, an American public university.",
+          imageURL: "../../img/hunter-college.jpg",
       isEditOn: true,
-      address: "695 Park Ave, New York, NY 10065",
-      tempAddress: ""
+
+      tempAddress: "",
+      tempName:"",
+      tempDescription: "",
+      tempUrl: ""
     };
   }
   handleClick = () => {
@@ -40,13 +41,8 @@ class SingleCampus extends Component {
       return (
         <div>
           <h1 style={{ textAlign: "center" }}> Single Campus </h1>
-          <h2 style={{ textAlign: "center" }}> Hunter College </h2>
-          <p className="description">
-            Hunter College is one of the constituent colleges of the City
-            University of New York, an American public university. It is located
-            in the Lenox Hill neighborhood of the Upper East Side of Manhattan,
-            New York City.
-          </p>
+          <h2 style={{ textAlign: "center" }}> {this.state.campus} </h2>
+          <p className="description">{this.state.description}</p>
           <img
             src={require("../../img/hunter-college.jpg")}
             style={{ height: "250px", width: "250px" }}
@@ -56,26 +52,63 @@ class SingleCampus extends Component {
             <button className="edit" onClick={this.handleClick}>
               Edit
             </button>
+            <button className="delete" onClick={this.handleClick}>
+              Delete
+            </button>
           </div>
           <AllStudents />
         </div>
       );
     } else {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            First name:
-            <input
-              name="tempAddress"
-              type="text"
-              value={this.state.tempAddress}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <input type="submit" value="Save" />
-          <button onClick={this.handleClick}>Cancel</button>
-        </form>
+        <div>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Campus Name:
+                <input
+                  name="tempName"
+                  type="text"
+                  value={this.state.tempName}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <br />
+              <label>
+                Campus Address:
+                <input
+                  name="tempAddress"
+                  type="text"
+                  value={this.state.tempAddress}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <br />
+              <label>
+                Campus Image Link:
+                <input
+                  name="tempUrl"
+                  type="text"
+                  value={this.state.tempUrl}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <br />
+              <label>
+                Campus description:
+                <input
+                  name="tempDescription"
+                  type="text"
+                  value={this.state.tempDescription}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <br />
+
+              <input type="submit" value="Save" />
+              <button onClick={this.handleClick}>Cancel</button>
+            </form>
+            <AllStudents />
+        </div>
       );
     }
   }
