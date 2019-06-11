@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import NavigationBar from "./components/layout/NavigationBar";
 import Homepage from "./components/layout/Homepage";
 import AllStudents from "./components/students/AllStudentsContainer";
-import Campuses from "./components/campuses/Campuses";
+import AllCampuses from "./components/campuses/AllCampusesContainer";
 import SingleCampus from "./components/campuses/SingleCampus";
 
 export default class App extends Component {
@@ -15,7 +15,7 @@ export default class App extends Component {
           <NavigationBar />
           <Route path="/" component={Homepage}>
             <Route path="/allstudents" component={AllStudents} />
-            <Route path="/allcampuses" component={Campuses} />
+            <Route path="/allcampuses" component={AllCampuses} />
             <Route path="/singlecampus" component={SingleCampus} />
           </Route>
         </div>
