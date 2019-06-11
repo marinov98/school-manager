@@ -45,7 +45,6 @@ class Homepage extends Component {
           </p>
         </div>{" "}
         />
-        <SingleStudent name="Bob Anderson" gps={3.6} registered={true} id={5} />
       </div>
     );
   }

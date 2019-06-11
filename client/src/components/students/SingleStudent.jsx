@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./AllStudents.css";
+import { Link } from "react-router-dom";
 
 export default class SingleStudent extends Component {
   constructor(props) {
@@ -10,50 +12,103 @@ export default class SingleStudent extends Component {
       gpa: this.props.gpa,
       id: this.props.id,
       registered: this.props.registered,
-      campus: "",
+      campus: this.props.campus,
+      tempcampus: "",
       pictureURL: this.props.pictureURL
     };
   }
 
   isRegistered = () => {
     if (this.props.registered) {
-      return <h3>The student is registered to a campus</h3>;
+      return (
+        <h3 className="registered">The student is registered to a campus</h3>
+      );
     } else {
-      return <h3>The student is not registered to a campus</h3>;
+      return (
+        <h4 className="registered">
+          The student is not registered to a campus
+        </h4>
+      );
     }
+  };
+
+  handleClick = e => {
+    if (this.state.campus !== "") {
+      this.setState(state => ({
+        campus: state.tempcampus
+      }));
+    }
+  };
+
+  handleChange = e => {
+    this.setState({
+      tempcampus: e.target.value
+    });
   };
 
   // DISPLAY FUNCTIONS
 
   studentPageTop = () => {
     return (
-      <div className="row">
-        <div className="col">
-          <img src={require("../../img/david-cohen.jpg")} alt="a student" />
+      <div className="row pageTop">
+        <div className="col-sm-4">
+          <img
+            src={require("../../img/david-cohen.jpg")}
+            alt="a student"
+            className="studentphoto"
+          />
         </div>
-        <button className="btn edit">Edit</button>
-        <button className="btn delete">Delete</button>
+        <button className="badge badge-primary btn edit">Edit</button>
+        <button className="badge badge-danger btn delete">Delete</button>
       </div>
     );
   };
 
   studentPageBottom = () => {
     return (
-      <div className="row">
-        <div className="col">
-          {this.isRegistered()}
-          <img src={require("../../img/hunter-college.jpg")} alt="Campus" />
+      <div className="row pageBottom">
+        <div className="row campusBox">
+          <div className="col-sm-4">
+            {this.isRegistered()}
+            <img
+              className="campusPhoto"
+              src={require("../../img/hunter-college.jpg")}
+              alt="Campus"
+            />
+          </div>
+          <div className="col-md-8">
+            <Link to="/allCampuses" className="campusName">
+              {this.state.campus}
+            </Link>
+          </div>
         </div>
-        <div className="select-campus">
-          <select className="selector">
-            <option value="" disabled selected>
-              Select campus...
-            </option>
-            <option value="1">Fung University</option>
-            <option vlaue="2">FAN Mary College</option>
-            <option value="3">Lim Community College</option>
-            <option value="4">Marinov state university</option>
-          </select>
+        <div className="col-sm-4">
+          <div className="select-campus">
+            <select
+              ref="select"
+              defaultValue={this.state.campus}
+              onChange={this.handleChange}
+              className="selector"
+            >
+              <option value={this.state.campus} disabled>
+                Select campus...
+              </option>
+              <option value="Fung Univerity">Fung University</option>
+              <option value="FAN Mary College">FAN Mary College</option>
+              <option value="Lim Community College">
+                Lim Community College
+              </option>
+              <option value="Marinov State University">
+                Marinov State University
+              </option>
+            </select>
+          </div>
+          <button
+            className="badge badge-warning btn-changeCampus"
+            onClick={this.handleClick}
+          >
+            Change Campus
+          </button>
         </div>
       </div>
     );
@@ -62,8 +117,14 @@ export default class SingleStudent extends Component {
   render() {
     return (
       <div className="student">
-        <h1>{this.props.name}</h1>
-        <h4>GPA: {this.props.gpa}</h4>
+        <div className="row">
+          <div className="col-sm-4">
+            <h1 className="studentname">{this.props.name}</h1>
+          </div>
+          <div className="col-sm-4">
+            <h4 className="studentGPA">GPA: {this.props.gpa}</h4>{" "}
+          </div>
+        </div>
         {this.studentPageTop()}
         {this.studentPageBottom()}
       </div>
