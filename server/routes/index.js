@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const studentsController = require("../controllers").students;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports = app => {
+  app.get("/api", (req, res) =>
+    res.status(200).send({
+      message: "Welcome to the School Manager API!"
+    })
+  );
+  app.post("/api/students", studentsController.create);
+  app.get("/api/students", studentsController.list);
+};

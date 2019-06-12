@@ -20,7 +20,7 @@ const addStudent = student => {
 // THUNK CREATORS;
 export const getStudentsThunk = () => dispatch => {
   return axios
-    .get(`https://nba-players.herokuapp.com/players-stats/`)
+    .get(`/api/students`)
     .then(res => res.data)
     .then(students => dispatch(getStudents(students)))
     .catch(err => console.log(err));
