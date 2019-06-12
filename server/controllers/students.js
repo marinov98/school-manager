@@ -2,7 +2,9 @@ const Student = require("../models").Student;
 
 module.exports = {
   create(req, res) {
-    return Student.create(req.body)
+    let newStudent = req.body;
+    newStudent["campusId"] = req.body.campusId;
+    return Student.create(newStudent)
       .then(student => res.status(201).json(student))
       .catch(error => res.status(400).json(error));
   },

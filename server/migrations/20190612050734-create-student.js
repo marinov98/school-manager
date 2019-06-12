@@ -51,6 +51,14 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE
+      },
+      campusId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Campuses",
+          key: "id",
+          as: "campusId"
+        }
       }
     }),
   down: (queryInterface /* , DataTypes */) =>
