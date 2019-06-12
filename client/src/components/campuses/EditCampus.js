@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import AllStudents from "../students/AllStudentsContainer";
 
 class EditCampus extends Component {
@@ -122,4 +123,7 @@ class EditCampus extends Component {
   }
 }
 
-export default EditCampus;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+) (EditCampus);

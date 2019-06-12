@@ -49,7 +49,16 @@ class SingleCampus extends Component {
 
     displayCampus = () =>{
         //return <SingleCampusView campuses={this.props.campus} />
-        return <h1>{this.state.campus.Name}</h1>
+        return (
+            <div>
+                <h1>{this.state.campus.Name}</h1>
+                <img
+                  src={this.state.campus.ImageURL}
+                  style={{ height: "250px", width: "250px" }}
+                />
+                <p>{this.state.campus.Description}</p>
+            </div>
+        )
     }
     render(){
         console.log(this.state.campus);
