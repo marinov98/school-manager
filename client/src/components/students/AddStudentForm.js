@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { addStudentThunk } from "../../actions/studentActions";
 import {
   Form,
@@ -19,6 +18,8 @@ class AddStudentForm extends Component {
       firstName: "",
       lastName: "",
       campus: "Select Campus",
+      email: "",
+      gpa: null,
       dropdownOpen: false
     };
     this.initialState = this.state;
@@ -31,19 +32,24 @@ class AddStudentForm extends Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
     if (
       this.state.firstName !== this.initialState.firstName &&
       this.state.lastName !== this.initialState.lastName &&
-      this.state.campus !== this.initialState.campus
+      this.state.email !== this.initialState.email &&
+      this.state.gpa !== this.initialState.gpa &&
+      this.state.campus !== this.initialState.campus &&
+      this.state.email.match(/\w+@\w+\.(com|edu|org)/)
     ) {
       let newStudent = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
-        campus: this.state.campus
+        campus: this.state.campus,
+        email: this.state.email,
+        gpa: this.state.gpa
       };
       this.props.addStudent(newStudent);
     } else {
+      e.preventDefault();
       alert("Please fill out all the appropriate fields");
     }
   };
@@ -69,6 +75,21 @@ class AddStudentForm extends Component {
             type="text"
             name="lastName"
             placeholder="Last Name"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={this.handleChange}
+          />
+          <Input
+            type="number"
+            name="gpa"
+            placeholder="GPA"
+            min={0.0}
+            max={4.0}
+            step="any"
             onChange={this.handleChange}
           />
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>

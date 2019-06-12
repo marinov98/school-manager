@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./HomePage.css";
+import SingleStudent from "../students/SingleStudent";
 
 // const mainPageStyle = {
 //   color: "black"
