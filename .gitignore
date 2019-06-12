@@ -58,7 +58,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# Commented out on purpose to share database url
+# .env
 
 # next.js build output
 .next
