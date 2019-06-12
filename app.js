@@ -16,9 +16,6 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// // Load static files
-// app.use(express.static(path.join(__dirname, "client/public")));
-
 // Require our routes into the application.
 require("./server/routes")(app);
 
@@ -26,12 +23,5 @@ require("./server/routes")(app);
 app.get("/", (req, res) => {
   res.send(process.env.DATABASE_URL);
 });
-
-// // Setup a default catch-all route that sends back a welcome message in JSON format.
-// app.get("*", (req, res) =>
-//   res.status(200).send({
-//     message: "Not a valid route!! :)"
-//   })
-// );
 
 module.exports = app;

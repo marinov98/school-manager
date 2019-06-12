@@ -1,4 +1,6 @@
 // This will be our application entry. We'll setup our server here.
+// Explanation so, basically it removes all the create and start server code from your app.js and let you focus only on the application logic part.
+
 const http = require("http");
 const app = require("../app"); // The express app we just created
 
