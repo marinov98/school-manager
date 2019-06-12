@@ -9,6 +9,9 @@ require("dotenv").config();
 // Set up the express app
 const app = express();
 
+// Set up http
+const http = require("http");
+
 // Log requests to the console.
 app.use(logger("dev"));
 
