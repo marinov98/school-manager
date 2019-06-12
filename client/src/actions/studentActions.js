@@ -10,22 +10,15 @@ const getStudents = students => {
   };
 };
 
-const addStudent = student => {
-  return {
-    type: ADD_STUDENT,
-    payload: student
-  };
-};
-
 // THUNK CREATORS;
 export const getStudentsThunk = () => dispatch => {
   return axios
-    .get(`https://nba-players.herokuapp.com/players-stats/`)
+    .get(`/api/students`)
     .then(res => res.data)
     .then(students => dispatch(getStudents(students)))
     .catch(err => console.log(err));
 };
 
 export const addStudentThunk = newStudent => dispatch => {
-  return dispatch(addStudent(newStudent)); //add axios post
+  return axios.post(`/api/students`, newStudent).catch(err => console.log(err));
 };

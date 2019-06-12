@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.addStudentFormToggleButton {
+.allStudents .addStudentFormToggleButton {
   display: block;
   margin: 50px auto;
   width: 200px;
@@ -13,7 +13,7 @@
   padding: 10px;
 }
 
-.allStudentsView {
+.allStudents .allStudentsView {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -22,7 +22,7 @@
   margin-top: -25px;
 }
 
-.addStudentForm {
+.allStudents .addStudentForm {
   width: 600px;
   margin: 50px auto;
   text-align: center;
@@ -31,11 +31,11 @@
   border-radius: 25px;
 }
 
-.addStudentForm h1 {
+.allStudents .addStudentForm h1 {
   padding-bottom: 25px;
 }
 
-.addStudentForm input {
+.allStudents .addStudentForm input {
   text-align: center;
   border-radius: 3px;
   background-color: #dadada;
@@ -44,54 +44,55 @@
   margin: 5px auto;
 }
 
-.addStudentForm .dropdown {
+.allStudents .addStudentForm .dropdown {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0;
   margin: 0;
 }
 
-.addStudentForm .dropdown-toggle,
-.addStudentForm .dropdown-item {
+.allStudents .addStudentForm .dropdown-toggle,
+.allStudents .addStudentForm .dropdown-item {
   width: 498px;
   padding: 5px;
   text-align: center;
 }
 
-.addStudentForm input[type="submit"] {
+.allStudents .addStudentForm input[type="submit"] {
   background-color: lightgreen;
 }
 
-.studentBox {
+.allStudents .studentBox {
   border: 3px solid black;
   margin: 25px;
   height: 600px;
   width: 400px;
 }
 
-.studentName {
+.allStudents .studentName {
   height: 50px;
   background-color: white;
 }
 
-.studentName a {
+.allStudents .studentName a {
   line-height: 50px;
 }
 
-.studentCampus {
+.allStudents .studentCampus {
   height: 50px;
   background-color: #f5f5f5;
 }
 
-.studentCampus h3 {
+.allStudents .studentCampus h3 {
   line-height: 50px;
 }
 
-.studentImage {
+.allStudents .studentImage {
   height: 494px;
   width: 100%;
   background-color: lightskyblue;
 }
+
 /* SINGLE STUDENT */
 
 .student {
