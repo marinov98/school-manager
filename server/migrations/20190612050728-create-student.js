@@ -1,3 +1,4 @@
+"use strict";
 module.exports = {
   up: (queryInterface, DataTypes) =>
     queryInterface.createTable("Students", {
@@ -31,7 +32,7 @@ module.exports = {
       },
       imageURL: {
         type: DataTypes.STRING,
-        defaultValue: "https://i.stack.imgur.com/l60Hf.png"
+        defaultValue: "/img/default_student.jpg"
       },
       gpa: {
         type: DataTypes.DECIMAL,

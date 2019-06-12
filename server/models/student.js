@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     imageURL: {
       type: DataTypes.STRING,
-      defaultValue: "https://i.stack.imgur.com/l60Hf.png"
+      defaultValue: "/img/default_student.jpg"
     },
     gpa: {
       type: DataTypes.DECIMAL,
