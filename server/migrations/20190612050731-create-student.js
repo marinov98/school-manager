@@ -55,9 +55,9 @@ module.exports = {
       campusId: {
         type: DataTypes.INTEGER,
         refrences: {
-          model: 'Campuses',
-          key: 'id',
-          as: 'campusId'
+          model: "Campuses",
+          key: "id",
+          as: "campusId"
         }
       }
     }),

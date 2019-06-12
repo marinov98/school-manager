@@ -40,8 +40,8 @@ module.exports = (sequelize, DataTypes) => {
 
   Student.associate = models => {
     Student.belongsTo(models.Campus, {
-      foreignKey: 'campusId'
-    })
+      foreignKey: "campusId"
+    });
   };
   return Student;
 };
