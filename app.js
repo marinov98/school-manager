@@ -3,6 +3,9 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
 
+// Grab .env file
+require("dotenv").config();
+
 // Set up the express app
 const app = express();
 
@@ -13,15 +16,15 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Load static files
-app.use(express.static(path.join(__dirname, "client/public")));
+// // Load static files
+// app.use(express.static(path.join(__dirname, "client/public")));
 
 // Require our routes into the application.
 require("./server/routes")(app);
 
-// Load index.html
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname + client + public + "/index.html"));
+// Load .env variable 'DATABASE_URL'
+app.get("/", (req, res) => {
+  res.send(process.env.DATABASE_URL);
 });
 
 // // Setup a default catch-all route that sends back a welcome message in JSON format.
