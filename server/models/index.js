@@ -8,6 +8,11 @@ const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
+/**
+ * If using a remote database, uses the environment variable to set the config
+ * If using a local database, grabs the info from the config file
+ * Stores this information in a Sequelize object
+ */
 let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
@@ -20,6 +25,11 @@ if (config.use_env_variable) {
   );
 }
 
+/**
+ * Checks for any model .js files in the current directory
+ * Creates a model for each model file
+ * Creates a key:value pair in the database model
+ */
 fs.readdirSync(__dirname)
   .filter(file => {
     return (
@@ -37,6 +47,9 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+/**
+ * Adds the sequelize object and Sequelize package to the database object
+ */
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
