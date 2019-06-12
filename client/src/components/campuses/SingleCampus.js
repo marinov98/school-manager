@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./SingleCampus.css";
-//import EditCampus from "./EditCampus"
+import EditCampus from "./EditCampus"
 //import SingleCampusView from "./SingleCampusView"
 import AllStudents from "../students/AllStudentsContainer";
 
@@ -11,7 +11,8 @@ class SingleCampus extends Component {
         super(props);
         this.state = {
             campus: {},
-            isEditOn: true
+            toggleForm: false,
+            //toggleEdit: false
         };
     }
 
@@ -46,6 +47,11 @@ class SingleCampus extends Component {
     //     console.log(this.state.campus);
     // }
 
+    displayForm = () => {
+        if (this.state.toggleForm) {
+            return <EditCampus />;
+        }
+    };
 
     displayCampus = () =>{
         //return <SingleCampusView campuses={this.props.campus} />
@@ -57,18 +63,37 @@ class SingleCampus extends Component {
                   style={{ height: "250px", width: "250px" }}
                 />
                 <p>{this.state.campus.Description}</p>
+                <p>{this.state.campus.Address}</p>
             </div>
         )
     }
+
+
+    toggleForm = () => {
+        this.setState(prevState => ({
+            toggleForm: !prevState.toggleForm
+        }));
+    };
     render(){
         console.log(this.state.campus);
         console.log(this.state.campus.Name);
-        return (
-            <div>
-                <h1>Single Campus</h1>
-                {this.displayCampus()}
-            </div>
-        );
+        if(!this.state.toggleForm){
+            return(
+                <div>
+                    <h1>Single Campus</h1>
+                    {this.displayCampus()}
+                    <button onClick={this.toggleForm}>Edit</button>
+                    <button>Delete</button>
+                </div>
+            )
+        }
+        else{
+            return(
+                <div>
+                    {this.displayForm()}
+                </div>
+            )
+        }
     }
 }
 

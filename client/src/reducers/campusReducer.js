@@ -7,7 +7,7 @@ const initialState = {
         "CurrentStudents": [{ "ID": 1, "Name": "Mary Fan" }, { "ID": 2, "Name": "Angela Lim" }, { "ID": 3, "Name": "Kris Wu" }],
         "Address": "695 Park Ave, New York, NY 10065",
         "Description": "Hunter College is one of the constituent colleges of the City University of New York, an American public university.",
-        "ImageURL": "../img/hunter-college.jpg"
+        "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Hunter_College.jpg/215px-Hunter_College.jpg"
 
     },
     {
@@ -48,9 +48,6 @@ export default (state = initialState, action) => {
             };
         case DELETE_CAMPUS:
 
-            // var apps = [{id:34,name:'My App',another:'thing'},{id:37,name:'My New App',another:'things'}];
-
-            // // get index of object with id:37
             // var removeIndex = apps.map(function(item) { return item.id; }).indexOf(37);
 
             // // remove object
