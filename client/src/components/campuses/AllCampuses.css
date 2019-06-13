@@ -1,32 +1,30 @@
 .allCampuses * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  
-  .allCampuses .allCampusesView {
-    
-    margin-top: 25px;
-  }
-  
-  .allCampuses .addCampusForm {
-    width: 600px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 50px;
-    background-color: lightskyblue;
-    border-radius: 25px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .allCampuses .singleCampusSection {
-    border: 3px solid black;
-    margin: 25px auto;
-    height: 150px;
-    width: 400px;
-  }
+.allCampuses .allCampusesView {
+  margin-top: 25px;
+}
 
-  .allCampuses {
-    margin: auto;
-    text-align: center;
-  }
+.allCampuses .addCampusForm {
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 50px;
+  background-color: lightskyblue;
+  border-radius: 25px;
+}
+
+.allCampuses .singleCampusSection {
+  border: 3px solid black;
+  margin: 25px auto;
+  height: 150px;
+  width: 400px;
+}
+
+.allCampuses {
+  margin: auto;
+  text-align: center;
+}
