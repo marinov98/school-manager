@@ -30,7 +30,7 @@ class AllStudentsContainer extends Component {
   };
 
   displayStudents = () => {
-    if (this.props.student.students) {
+    if (this.props.student.students.length === 0) {
       return <h2 className="noStudentsFound">No Students Avaliable</h2>;
     } else {
       return <AllStudentsView />;
