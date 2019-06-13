@@ -10,6 +10,13 @@ const getStudents = students => {
   };
 };
 
+const addStudent = student => {
+  return {
+    type: GET_STUDENTS,
+    payload: student
+  };
+};
+
 // THUNK CREATORS;
 export const getStudentsThunk = () => dispatch => {
   return axios
@@ -20,5 +27,8 @@ export const getStudentsThunk = () => dispatch => {
 };
 
 export const addStudentThunk = newStudent => dispatch => {
-  return axios.post(`/api/students`, newStudent).catch(err => console.log(err));
+  return axios
+    .post(`/api/students`, newStudent)
+    .then(student => dispatch(addStudent(student)))
+    .catch(err => console.log(err));
 };
