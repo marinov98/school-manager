@@ -22,8 +22,8 @@ class SingleCampus extends Component {
     }
 
     static getDerivedStateFromProps = (props,prevState) => {
-        let targetCampus = "Hunter College";
-        let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.Name === targetCampus);
+        let targetCampus = "1";
+        let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.Id === targetCampus);
          let thisCampusObject = props.campus.campuses[indexOfTargetCampus];
          console.log(thisCampusObject);
         return { campus: props.campus.campuses[indexOfTargetCampus]};
@@ -48,9 +48,9 @@ class SingleCampus extends Component {
     // }
 
     displayForm = () => {
-        if (this.state.toggleForm) {
+        //if (this.state.toggleForm) {
             return <EditCampus />;
-        }
+        //}
     };
 
     displayCampus = () =>{
@@ -76,7 +76,7 @@ class SingleCampus extends Component {
     };
     render(){
         console.log(this.state.campus);
-        console.log(this.state.campus.Name);
+        // console.log(this.state.campus.campuses[0].Name);
         if(!this.state.toggleForm){
             return(
                 <div>
@@ -90,12 +90,21 @@ class SingleCampus extends Component {
         else{
             return(
                 <div>
+                    <button onClick={this.toggleForm}>Go Back</button>
                     {this.displayForm()}
                 </div>
             )
         }
     }
 }
+
+
+
+
+
+
+
+
 
 const mapStateToProps = state => ({
     campus: state.campus

@@ -1,7 +1,8 @@
-import { GET_CAMPUSES, ADD_CAMPUS, SEARCH_CAMPUS, DELETE_CAMPUS } from "../actions/types";
+import { GET_CAMPUSES, ADD_CAMPUS, SEARCH_CAMPUS, DELETE_CAMPUS, EDIT_CAMPUS } from "../actions/types";
 
 const initialState = {
     campuses: [{
+        "Id": "1",
         "Name": "Hunter College",
         "Location": "Manhattan",
         "CurrentStudents": [{ "ID": 1, "Name": "Mary Fan" }, { "ID": 2, "Name": "Angela Lim" }, { "ID": 3, "Name": "Kris Wu" }],
@@ -10,12 +11,12 @@ const initialState = {
         "ImageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Hunter_College.jpg/215px-Hunter_College.jpg"
 
     },
-    {
+    {   "ID": "2",
         "Name": "Baruch College",
         "Location": "Manhattan",
         "CurrentStudents": [{ "ID": 4, "Name": "Mary Fan" }, { "ID": 5, "Name": "Angela Lim" }, { "ID": 6, "Name": "Kris Wu" }]
     },
-    {
+    {   "ID": "3",
         "Name": "Queens College",
         "Location": "Queens",
         "CurrentStudents": [{ "ID": 7, "Name": "Mary Fan" }, { "ID": 8, "Name": "Angela Lim" }, { "ID": 9, "Name": "Kris Wu" }]
@@ -70,11 +71,30 @@ export default (state = initialState, action) => {
                 campuses: newArray
             };
 
-        // case CHANGE_NAME:
-        //     return{
-        //         ...state,
-        //
-        //     }
+        case EDIT_CAMPUS:
+            let copyOfCampusArray = state.campuses;
+           let targetId = action.payload.Id;
+            console.log(action.payload.Id);
+
+           let indexOfTargetId = copyOfCampusArray.findIndex(campus => campus.Id === targetId );
+
+           console.log(indexOfTargetId)
+
+
+           console.log(copyOfCampusArray[indexOfTargetId].Name)
+
+           copyOfCampusArray[indexOfTargetId].Name = action.payload.Name;
+
+            console.log(copyOfCampusArray[indexOfTargetId].Name)
+
+           copyOfCampusArray[indexOfTargetId].Address = action.payload.Address;
+           copyOfCampusArray[indexOfTargetId].Description = action.payload.Description;
+           copyOfCampusArray[indexOfTargetId].ImageURL = action.payload.ImageURL;
+
+           return {
+               ...state,
+               campuses: copyOfCampusArray
+       };
 
         default:
             return state;

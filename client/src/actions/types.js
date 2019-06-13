@@ -5,3 +5,4 @@ export const REMOVE_STUDENT = "REMOVE_STUDENT";
 export const ADD_CAMPUS = "ADD_CAMPUS";
 export const DELETE_CAMPUS = "DELETE_CAMPUS";
 export const SEARCH_CAMPUS = "SEARCH_CAMPUS";
+export const EDIT_CAMPUS = "EDIT_CAMPUS";

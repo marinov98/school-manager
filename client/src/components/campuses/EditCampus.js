@@ -6,14 +6,15 @@ class EditCampus extends Component {
     constructor(props){
         super(props);
         this.state = {
+          Id: "1",
           Address: "",
           Name:"",
-          Description: "",
-          ImageURL: ""
+         Description: "",
+         ImageURL: ""
         };
         this.initialState = this.state;
     }
-    
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -21,20 +22,22 @@ class EditCampus extends Component {
   };
   handleSubmit = event => {
       event.preventDefault();
-      if (
-          this.state.Name !== this.initialState.Name &&
-          this.state.Address !== this.initialState.Address &&
-          this.state.Description !== this.initialState.Description &&
-          this.state.ImageURL !== this.initialState.ImageURL
-      ) {
+      // if (
+      //     this.state.Name !== this.initialState.Name &&
+      //     this.state.Address !== this.initialState.Address &&
+      //    // this.state.Description !== this.initialState.Description &&
+      //     //this.state.ImageURL !== this.initialState.ImageURL
+      // ) {
           let editedCampus = {
+              Id: this.state.Id,
               Name: this.state.Name,
               Address: this.state.Address,
-              Description: this.state.Description,
-              ImageURL: this.state.ImageURL
+             // Description: this.state.Description,
+              //ImageURL: this.state.ImageURL
           };
           this.props.editCampus(editedCampus);
-      }
+
+      //}
   };
 
 
