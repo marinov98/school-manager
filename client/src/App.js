@@ -17,13 +17,12 @@ export default class App extends Component {
           <Route exact path="/" component={Homepage}>
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/campuses" component={AllCampuses} />
+            <Route exact path="/campuses/:campusId" component={SingleCampus} />
             <Route
               exact
               path="/students/:studentId"
               component={SingleStudent}
             />
-            <Route exact path="/singlecampus" component={SingleCampus} />
-            <Route exact path="/singlestudent" component={SingleStudent} />
           </Route>
         </div>
       </Router>
