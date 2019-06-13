@@ -17,7 +17,7 @@ class AllCampusesView extends Component {
             <div className="allCampusesView">
                 {this.state.campuses.map((campus) => (
                     <div className="singleCampusSection" key={campus.id}>
-                        <Link to="/singlecampus">
+                        <Link to={"/campuses/" + campus.id}>
                             <p>Campus Name: {campus.name}</p>
                             <p>Campus Address: {campus.address}</p>
                         </Link>
