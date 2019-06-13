@@ -8,6 +8,7 @@ module.exports = app => {
   app.delete("/api/students/:id", studentsController.delete);
   app.post("/api/campuses", campusesController.create);
   app.get("/api/campuses", campusesController.list);
+  app.delete("/api/campuses/:campusId", campusesController.delete);
   app.get("/api", async (req, res, next) => {
     try {
       res.status(200).send({
