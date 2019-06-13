@@ -2,29 +2,6 @@ import React, { Component } from "react";
 import "./HomePage.css";
 import SingleStudent from "../students/SingleStudent";
 
-// const mainPageStyle = {
-//   color: "black"
-// };
-
-// const divStyle = {
-//   backgroundImage: 'url("../../img/students.jpg")',
-//   textAlign: "center",
-//   backgroundSize: "cover",
-//   backgroundPosition: "center",
-//   height: "100vh",
-//   backgroundAttachment: "fixed"
-// };
-
-// const badge = {
-//   margin: "10px",
-//   fontSize: "50px"
-// };
-
-// const imgStyle = {
-//   width: "1500px",
-//   marginLeft: "50px"
-// };
-
 class Homepage extends Component {
   constructor() {
     super();

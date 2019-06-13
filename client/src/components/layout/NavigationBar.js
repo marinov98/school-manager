@@ -21,8 +21,8 @@ class NavigationBar extends Component {
     this.state = {
       options: [
         { id: 0, content: "Home", address: "/" },
-        { id: 1, content: "All Campuses", address: "/allcampuses" },
-        { id: 2, content: "All Students", address: "/allstudents" }
+        { id: 1, content: "Campuses", address: "/campuses" },
+        { id: 2, content: "Students", address: "/students" }
       ]
     };
   }
