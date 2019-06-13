@@ -13,4 +13,9 @@ module.exports = {
             .then(campuses => res.status(200).json(campuses))
             .catch(error => res.status(400).json(error));
     },
+    delete(req, res) {
+        return Campus.destroy({ where: { id: req.params.campusId } })
+            .then(() => res.status(200).send({ message: 'Deleted Campus' }))
+            .catch(error => res.status(400).json(error));
+    }
 };
