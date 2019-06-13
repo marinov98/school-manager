@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
     GET_CAMPUSES,
     ADD_CAMPUS,
@@ -6,10 +7,17 @@ import {
     EDIT_CAMPUS
 } from "./types";
 
-const addCampus = campus => {
+const getCampuses = campuses => {
+    return {
+        type: GET_CAMPUSES,
+        payload: campuses
+    };
+};
+
+const addCampus = newCampus => {
     return {
         type: ADD_CAMPUS,
-        payload: campus
+        payload: newCampus
     };
 };
 
@@ -32,14 +40,24 @@ const editCampus = editedCampus => {
         type: EDIT_CAMPUS,
         payload: editedCampus
     }
-}
+};
 
-export const deleteCampusThunk = campusName => dispatch => {
-    return dispatch(deleteCampus(campusName));
+export const getCampusesThunk = () => dispatch => {
+    return axios
+        .get(`/api/campuses`)
+        .then(res => res.data)
+        .then(campuses => dispatch(getCampuses(campuses)))
+        .catch(err => console.log(err));
 };
 
 export const addCampusThunk = newCampus => dispatch => {
-    return dispatch(addCampus(newCampus));
+    return axios
+        .post(`/api/campuses`, newCampus).catch(err => console.log(err))
+        .then(newCampus => dispatch(addCampus(newCampus)));
+};
+
+export const deleteCampusThunk = campusName => dispatch => {
+    return dispatch(deleteCampus(campusName));
 };
 
 export const searchCampusThunk = filterWord => dispatch => {

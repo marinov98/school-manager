@@ -4,6 +4,7 @@ import AddCampusForm from "./AddCampusForm";
 import DeleteCampusForm from "./DeleteCampusForm";
 import AllCampusesView from "./AllCampusesView";
 import SearchCampus from "./SearchCampus";
+import { getCampusesThunk } from "../../actions/campusActions";
 
 class AllCampusesContainer extends Component {
     constructor() {
@@ -14,6 +15,10 @@ class AllCampusesContainer extends Component {
             toggleDeleteForm: false
         };
     }
+
+    componentDidMount = () => {
+        this.props.getCampuses();
+    };
 
     displayCampuses = () => {
         if (this.state.toggleSearch) {
@@ -99,4 +104,13 @@ const mapStateToProps = state => ({
     campus: state.campus
 });
 
-export default connect(mapStateToProps)(AllCampusesContainer);
+const mapDispatchToProps = dispatch => {
+    return {
+        getCampuses: () => dispatch(getCampusesThunk())
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AllCampusesContainer);
