@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_STUDENTS, ADD_STUDENT, REMOVE_STUDENT } from "./types";
+import { GET_STUDENTS, ADD_STUDENT, DELETE_STUDENT } from "./types";
 
 // Action Creator:
 
@@ -17,6 +17,13 @@ const addStudent = student => {
   };
 };
 
+const deleteStudent = studentId => {
+  return {
+    type: DELETE_STUDENT,
+    payload: studentId
+  };
+};
+
 // THUNK CREATORS;
 export const getStudentsThunk = () => dispatch => {
   return axios
@@ -31,5 +38,13 @@ export const addStudentThunk = newStudent => dispatch => {
     .post(`/api/students`, newStudent)
     .then(res => res.data)
     .then(student => dispatch(addStudent(student)))
+    .catch(err => console.log(err));
+};
+
+export const deleteStudentThunk = studentId => dispatch => {
+  return axios
+    .delete(`/api/students/${studentId}`)
+    .then(res => res.data)
+    .then(studentId => dispatch(deleteStudent(studentId)))
     .catch(err => console.log(err));
 };

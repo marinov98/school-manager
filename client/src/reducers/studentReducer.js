@@ -1,4 +1,4 @@
-import { GET_STUDENTS, ADD_STUDENT } from "../actions/types";
+import { GET_STUDENTS, ADD_STUDENT, DELETE_STUDENT } from "../actions/types";
 
 const initialState = {
   students: []
@@ -15,6 +15,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         students: [action.payload, ...state.students]
+      };
+    case DELETE_STUDENT:
+      console.log(action);
+      let targetIndex = state.students.findIndex(
+        student => student.id === action.payload
+      );
+      console.log(targetIndex);
+      return {
+        ...state,
+        students: [state.students[targetIndex]]
       };
     default:
       return state;

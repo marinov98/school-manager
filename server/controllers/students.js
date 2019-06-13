@@ -6,7 +6,7 @@ module.exports = {
       .then(student => res.status(200).json(student))
       .catch(error => res.status(400).json(error));
   },
-  async list(req, res) {
+  list(req, res) {
     return Student.findAll({
       order: [["id", "DESC"]]
     })
@@ -18,9 +18,21 @@ module.exports = {
       .then(student => res.status(200).json(student))
       .catch(error => res.status(400).json(error));
   },
-  async delete(req, res) {
-    return Student.delete(req.body, { where: { id: req.params.id } })
-      .then(student => res.status(200).json(student))
-      .catch(error => res.status(400).json(error));
+  destroy(req, res) {
+    return Student.findByPk(req.params.studentId).then(student => {
+      if (!student) {
+        return res.status(400).json({
+          message: "Student not found"
+        });
+      }
+      return student
+        .destroy()
+        .then(() =>
+          res.status(400).json({
+            message: "Student successfully deleted"
+          })
+        )
+        .catch(error => res.status(400).send(error));
+    });
   }
 };

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const AllStudentsView = props => {
-  const { students } = props;
+  const { students, deleteStudent } = props;
+  console.log(deleteStudent);
+  console.log("hello");
   return (
     <div className="allStudentsView">
       {students.map((student, index) => (
