@@ -14,16 +14,9 @@ export default class App extends Component {
       <Router>
         <div>
           <NavigationBar />
-          {/* <SingleStudent
-            name="Bob Anderson"
-            gpa={3.6}
-            registered={true}
-            campus="Fung University"
-            id={5}
-          /> */}
           <Route path="/" component={Homepage}>
-            <Route path="/allstudents" component={AllStudents} />
-            <Route path="/allcampuses" component={AllCampuses} />
+            <Route path="/students" component={AllStudents} />
+            <Route path="/campuses" component={AllCampuses} />
             <Route path="/singlecampus" component={SingleCampus} />
           </Route>
         </div>

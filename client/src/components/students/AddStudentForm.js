@@ -32,6 +32,7 @@ class AddStudentForm extends Component {
   };
 
   handleSubmit = e => {
+    e.preventDefault();
     if (
       this.state.firstName !== this.initialState.firstName &&
       this.state.lastName !== this.initialState.lastName &&
@@ -49,7 +50,6 @@ class AddStudentForm extends Component {
       };
       this.props.addStudent(newStudent);
     } else {
-      e.preventDefault();
       alert("Please fill out all the appropriate fields");
     }
   };
