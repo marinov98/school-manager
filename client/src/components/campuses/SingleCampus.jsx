@@ -12,7 +12,6 @@ class SingleCampus extends Component {
         this.state = {
             campus: {},
             toggleForm: false,
-            //toggleEdit: false
         };
     }
 
@@ -29,32 +28,13 @@ class SingleCampus extends Component {
         return { campus: props.campus.campuses[indexOfTargetCampus]};
     };
 
-    // componentDidMount = () => {
-    //     let targetCampus = "Hunter College";
-    //     let indexOfTargetCampus = this.props.campus.campuses.findIndex(campus => campus.Name === targetCampus);
-    //     console.log("INDEX:");
-    //     console.log(indexOfTargetCampus); //0
-    //     let thisCampusObject = this.props.campus.campuses[indexOfTargetCampus];
-    //     console.log("CAMPUS OBJECT: ");
-    //     console.log(thisCampusObject);
-    //
-    //     this.setState(prevState => ({
-    //         campus: {
-    //             ...prevState.campus,
-    //             thisCampusObject
-    //         }
-    //     }));
-    //     console.log(this.state.campus);
-    // }
-
     displayForm = () => {
-        //if (this.state.toggleForm) {
+        if (this.state.toggleForm) {
             return <EditCampus />;
-        //}
+        }
     };
 
     displayCampus = () =>{
-        //return <SingleCampusView campuses={this.props.campus} />
         return (
             <div>
                 <h1>{this.state.campus.Name}</h1>
@@ -76,7 +56,6 @@ class SingleCampus extends Component {
     };
     render(){
         console.log(this.state.campus);
-        // console.log(this.state.campus.campuses[0].Name);
         if(!this.state.toggleForm){
             return(
                 <div>

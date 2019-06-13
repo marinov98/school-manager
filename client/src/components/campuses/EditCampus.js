@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import { editCampusThunk } from "../../actions/campusActions";
 
 class EditCampus extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-          Id: "1",
-          Address: "",
-          Name:"",
-         Description: "",
-         ImageURL: ""
+            Id: "1",
+            Address: "",
+            Name: "",
+            Description: "",
+            ImageURL: ""
         };
         this.initialState = this.state;
     }
@@ -32,14 +32,23 @@ class EditCampus extends Component {
               Id: this.state.Id,
               Name: this.state.Name,
               Address: this.state.Address,
-             // Description: this.state.Description,
-              //ImageURL: this.state.ImageURL
+             Description: this.state.Description,
+              ImageURL: this.state.ImageURL
           };
           this.props.editCampus(editedCampus);
 
       //}
   };
-
+  handleClick = () =>{
+      let editedCampus = {
+          Id: this.initialState.Id,
+          Name: this.initialState.Name,
+          Address: this.initialState.Address,
+         Description: this.initialState.Description,
+          ImageURL: this.initialState.ImageURL
+      }
+      this.props.editCampus(editedCampus);
+  }
 
 
   render() {
@@ -90,7 +99,7 @@ class EditCampus extends Component {
                     type="submit"
                     onClick={this.handleSubmit}
                     value="Save"
-                />
+            />
                 <button onClick={this.handleClick}>Cancel</button>
             </form>
 
