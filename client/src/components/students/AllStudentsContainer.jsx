@@ -7,6 +7,7 @@ import {
   getStudentsThunk,
   deleteStudentThunk
 } from "../../actions/studentActions";
+import { getCampusesThunk } from "../../actions/campusActions";
 import "./AllStudents.css";
 import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,8 +18,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class AllStudentsContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       toggleForm: false
     };
@@ -26,6 +27,14 @@ class AllStudentsContainer extends Component {
 
   componentDidMount = () => {
     this.props.getStudents();
+  };
+
+  displayStudents = () => {
+    if (this.props.student.students.length === 0) {
+      return <h2 className="noStudentsFound">No Students Avaliable</h2>;
+    } else {
+      return <AllStudentsView />;
+    }
   };
 
   displayForm = () => {
@@ -58,40 +67,21 @@ class AllStudentsContainer extends Component {
           Add New Student {this.displayArrow()}
         </Button>
         {this.displayForm()}
-        <div className="allStudentsView">
-          {this.props.student.students.map((student, index) => (
-            <div className="studentBox" key={index}>
-              <Button
-                className="studentDeleteBtn"
-                onClick={() => this.props.deleteStudent(student.id)}
-              >
-                <FontAwesomeIcon icon={faMinusCircle} />
-              </Button>
-              <h2 className="studentName">
-                <Link to={"/students/" + student.id}>
-                  {student.firstName} {student.lastName}
-                </Link>
-              </h2>
-              <div className="studentCampus">
-                <h3>{student.campus}</h3>
-              </div>
-              <img className="studentImage" src={student.imageURL} />
-            </div>
-          ))}
-        </div>
+        {this.displayStudents()}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  student: state.student
+  student: state.student,
+  campus: state.campus
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     getStudents: () => dispatch(getStudentsThunk()),
-    deleteStudent: studentId => dispatch(deleteStudentThunk(studentId))
+    getCampuses: () => dispatch(getCampusesThunk())
   };
 };
 

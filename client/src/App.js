@@ -18,7 +18,11 @@ export default class App extends Component {
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/campuses" component={AllCampuses} />
             <Route exact path="/campuses/:campusId" component={SingleCampus} />
-            <Route path="/singleStudent" component={SingleStudent} />
+            <Route
+              exact
+              path="/students/:studentId"
+              component={SingleStudent}
+            />
           </Route>
         </div>
       </Router>

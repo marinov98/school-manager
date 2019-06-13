@@ -28,7 +28,7 @@ class AllCampusesView extends Component {
             </div>
         );
     }
-};
+}
 
 const mapStateToProps = state => ({
     campus: state.campus
