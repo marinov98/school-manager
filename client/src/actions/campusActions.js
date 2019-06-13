@@ -1,11 +1,10 @@
-import { GET_CAMPUSES, ADD_CAMPUS, SEARCH_CAMPUS } from "./types";
-
-// const getCampuses = campuses => {
-//     return {
-//         type: GET_CAMPUSES,
-//         payload: campuses
-//     };
-// };
+import {
+    GET_CAMPUSES,
+    ADD_CAMPUS,
+    SEARCH_CAMPUS,
+    DELETE_CAMPUS,
+    EDIT_CAMPUS
+} from "./types";
 
 const addCampus = campus => {
     return {
@@ -21,10 +20,32 @@ const searchCampus = filterWord => {
     };
 };
 
+const deleteCampus = campusName => {
+    return {
+        type: DELETE_CAMPUS,
+        payload: campusName
+    };
+};
+
+const editCampus = editedCampus => {
+    return {
+        type: EDIT_CAMPUS,
+        payload: editedCampus
+    }
+}
+
+export const deleteCampusThunk = campusName => dispatch => {
+    return dispatch(deleteCampus(campusName));
+};
+
 export const addCampusThunk = newCampus => dispatch => {
     return dispatch(addCampus(newCampus));
 };
 
 export const searchCampusThunk = filterWord => dispatch => {
     return dispatch(searchCampus(filterWord));
+};
+
+export const editCampusThunk = editedCampus => dispatch => {
+    return dispatch(editCampus(editedCampus));
 };

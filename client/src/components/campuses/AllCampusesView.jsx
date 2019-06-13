@@ -7,7 +7,7 @@ const AllCampusesView = props => {
         <div>
             {campuses.map((campus, index) => (
                 <div key={index}>
-                    <Link to="/Name/">
+                    <Link to="/singlecampus">
                         <p>Campus Name: {campus.Name}</p>
                         <p>Campus Location: {campus.Location}</p>
                     </Link>
