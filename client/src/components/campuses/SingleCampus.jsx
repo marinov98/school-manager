@@ -71,6 +71,7 @@ class SingleCampus extends Component {
                 <div>
                     <button onClick={this.toggleForm}>Go Back</button>
                     {this.displayForm()}
+                    <button onClick={this.toggleForm}>Cancel</button>
                 </div>
             )
         }

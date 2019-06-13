@@ -39,18 +39,7 @@ class EditCampus extends Component {
 
       //}
   };
-  handleClick = () =>{
-      let editedCampus = {
-          Id: this.initialState.Id,
-          Name: this.initialState.Name,
-          Address: this.initialState.Address,
-         Description: this.initialState.Description,
-          ImageURL: this.initialState.ImageURL
-      }
-      this.props.editCampus(editedCampus);
-  }
-
-
+  
   render() {
     return(
         <div>
@@ -100,7 +89,6 @@ class EditCampus extends Component {
                     onClick={this.handleSubmit}
                     value="Save"
             />
-                <button onClick={this.handleClick}>Cancel</button>
             </form>
 
         </div>
