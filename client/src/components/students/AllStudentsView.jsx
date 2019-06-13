@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const AllStudentsView = props => {
   const { students } = props;
@@ -7,14 +10,14 @@ const AllStudentsView = props => {
     <div className="allStudentsView">
       {students.map((student, index) => (
         <div className="studentBox" key={index}>
-          <div className="studentTopDiv">
-            <h2 className="studentName">
-              <Link to="/id/">
-                {student.firstName} {student.lastName}
-              </Link>
-            </h2>
-            <h2>X</h2>
-          </div>
+          <Button className="studentDeleteBtn">
+            <FontAwesomeIcon icon={faMinusCircle} />
+          </Button>
+          <h2 className="studentName">
+            <Link to="/id/">
+              {student.firstName} {student.lastName}
+            </Link>
+          </h2>
           <div className="studentCampus">
             <h3>{student.campus}</h3>
           </div>
