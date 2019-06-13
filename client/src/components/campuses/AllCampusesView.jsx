@@ -14,9 +14,9 @@ class AllCampusesView extends Component {
 
     render() {
         return (
-            <div>
+            <div className="allCampusesView">
                 {this.state.campuses.map((campus) => (
-                    <div key={campus.id}>
+                    <div className="singleCampusSection" key={campus.id}>
                         <Link to="/singlecampus">
                             <p>Campus Name: {campus.name}</p>
                             <p>Campus Address: {campus.address}</p>
