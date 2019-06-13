@@ -17,14 +17,11 @@ export default (state = initialState, action) => {
         students: [action.payload, ...state.students]
       };
     case DELETE_STUDENT:
-      console.log(action);
-      let targetIndex = state.students.findIndex(
-        student => student.id === action.payload
-      );
-      console.log(targetIndex);
       return {
         ...state,
-        students: [state.students[targetIndex]]
+        students: [
+          ...state.students.filter(student => student.id !== action.payload)
+        ]
       };
     default:
       return state;

@@ -13,7 +13,7 @@ module.exports = {
       .then(students => res.status(200).json(students))
       .catch(error => res.status(400).json(error));
   },
-  async update(req, res) {
+  update(req, res) {
     return Student.update(req.body, { where: { id: req.params.id } })
       .then(student => res.status(200).json(student))
       .catch(error => res.status(400).json(error));
@@ -27,11 +27,7 @@ module.exports = {
       }
       return student
         .destroy()
-        .then(() =>
-          res.status(400).json({
-            message: "Student successfully deleted"
-          })
-        )
+        .then(() => res.status(200).json(student))
         .catch(error => res.status(400).send(error));
     });
   }

@@ -18,6 +18,7 @@ const addStudent = student => {
 };
 
 const deleteStudent = studentId => {
+  console.log("running deleteStudent action creator");
   return {
     type: DELETE_STUDENT,
     payload: studentId
@@ -42,9 +43,10 @@ export const addStudentThunk = newStudent => dispatch => {
 };
 
 export const deleteStudentThunk = studentId => dispatch => {
+  console.log("running deleteStudentThunk");
   return axios
     .delete(`/api/students/${studentId}`)
-    .then(res => res.data)
+    .then(res => res.data.id)
     .then(studentId => dispatch(deleteStudent(studentId)))
     .catch(err => console.log(err));
 };
