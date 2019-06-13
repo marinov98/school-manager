@@ -37,13 +37,13 @@ class SingleCampus extends Component {
     displayCampus = () =>{
         return (
             <div>
-                <h1>{this.state.campus.Name}</h1>
+                <h1 className = "name">{this.state.campus.Name}</h1>
                 <img
                   src={this.state.campus.ImageURL}
                   style={{ height: "250px", width: "250px" }}
                 />
-                <p>{this.state.campus.Description}</p>
-                <p>{this.state.campus.Address}</p>
+                <p className = "description">{this.state.campus.Description}</p>
+                <p className = "address">{this.state.campus.Address}</p>
             </div>
         )
     }
@@ -59,7 +59,7 @@ class SingleCampus extends Component {
         if(!this.state.toggleForm){
             return(
                 <div>
-                    <h1>Single Campus</h1>
+                    <h1 className = "title">Single Campus</h1>
                     {this.displayCampus()}
                     <button onClick={this.toggleForm}>Edit</button>
                     <button>Delete</button>
