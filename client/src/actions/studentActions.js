@@ -29,6 +29,7 @@ export const getStudentsThunk = () => dispatch => {
 export const addStudentThunk = newStudent => dispatch => {
   return axios
     .post(`/api/students`, newStudent)
+    .then(res => res.data)
     .then(student => dispatch(addStudent(student)))
     .catch(err => console.log(err));
 };
