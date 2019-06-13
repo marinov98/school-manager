@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import AddStudentForm from "./AddStudentForm";
 import AllStudentsView from "./AllStudentsView";
-import { getStudentsThunk } from "../../actions/studentActions";
+import {
+  getStudentsThunk,
+  deleteStudentThunk
+} from "../../actions/studentActions";
 import "./AllStudents.css";
 import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronCircleDown,
-  faChevronCircleUp
+  faChevronCircleUp,
+  faMinusCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 class AllStudentsContainer extends Component {
@@ -53,7 +58,27 @@ class AllStudentsContainer extends Component {
           Add New Student {this.displayArrow()}
         </Button>
         {this.displayForm()}
-        <AllStudentsView students={this.props.student.students} />
+        <div className="allStudentsView">
+          {this.props.student.students.map((student, index) => (
+            <div className="studentBox" key={index}>
+              <Button
+                className="studentDeleteBtn"
+                onClick={() => this.props.deleteStudent(student.id)}
+              >
+                <FontAwesomeIcon icon={faMinusCircle} />
+              </Button>
+              <h2 className="studentName">
+                <Link to={"/students/" + student.id}>
+                  {student.firstName} {student.lastName}
+                </Link>
+              </h2>
+              <div className="studentCampus">
+                <h3>{student.campus}</h3>
+              </div>
+              <img className="studentImage" src={student.imageURL} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -65,7 +90,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getStudents: () => dispatch(getStudentsThunk())
+    getStudents: () => dispatch(getStudentsThunk()),
+    deleteStudent: studentId => dispatch(deleteStudentThunk(studentId))
   };
 };
 

@@ -63,6 +63,7 @@
 }
 
 .allStudents .studentBox {
+  position: relative;
   border: 3px solid black;
   margin: 25px;
   height: 600px;
@@ -93,8 +94,19 @@
   background-color: lightskyblue;
 }
 
-/* SINGLE STUDENT */
+.allStudents .studentDeleteBtn {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+  color: lightcoral;
+  background-color: transparent;
+  border: none;
+  transform: scale(2.5);
+}
 
+/******************/
+/* SINGLE STUDENT */
+/******************/
 .student {
   background-color: burlywood;
 }
