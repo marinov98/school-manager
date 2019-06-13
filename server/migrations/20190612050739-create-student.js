@@ -53,11 +53,11 @@ module.exports = {
         type: DataTypes.DATE
       },
       campusId: {
+        // The column name that will be in the Students table
         type: DataTypes.INTEGER,
         references: {
-          model: "Campuses",
-          key: "id",
-          as: "campusId"
+          model: "Campuses", // The table that will be looked at
+          key: "id" // to find the key to build a reference with
         }
       }
     }),

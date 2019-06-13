@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Student.associate = models => {
     Student.belongsTo(models.Campus, {
-      foreignKey: "id"
+      foreignKey: "campusId" // Lets SQL know that the foreign key of a Student that binds it to a Campus is called campusId
     });
   };
   return Student;
