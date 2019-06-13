@@ -36,8 +36,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: DataTypes.DATE
-      },
+      }
     }),
   down: (queryInterface /* , DataTypes */) =>
-    queryInterface.dropTable("Students")
+    queryInterface.dropTable("Campuses")
 };
