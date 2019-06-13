@@ -2,7 +2,6 @@ import axios from "axios";
 import {
     GET_CAMPUSES,
     ADD_CAMPUS,
-    SEARCH_CAMPUS,
     DELETE_CAMPUS,
     EDIT_CAMPUS
 } from "./types";
@@ -21,17 +20,10 @@ const addCampus = newCampus => {
     };
 };
 
-const searchCampus = filterWord => {
-    return {
-        type: SEARCH_CAMPUS,
-        payload: filterWord
-    };
-};
-
-const deleteCampus = campusName => {
+const deleteCampus = campusId => {
     return {
         type: DELETE_CAMPUS,
-        payload: campusName
+        payload: campusId
     };
 };
 
@@ -52,16 +44,17 @@ export const getCampusesThunk = () => dispatch => {
 
 export const addCampusThunk = newCampus => dispatch => {
     return axios
-        .post(`/api/campuses`, newCampus).catch(err => console.log(err))
-        .then(newCampus => dispatch(addCampus(newCampus)));
+        .post(`/api/campuses`, newCampus)
+        .then(res => res.data)
+        .then(newCampus => dispatch(addCampus(newCampus)))
+        .catch(err => console.log(err));
 };
 
-export const deleteCampusThunk = campusName => dispatch => {
-    return dispatch(deleteCampus(campusName));
-};
-
-export const searchCampusThunk = filterWord => dispatch => {
-    return dispatch(searchCampus(filterWord));
+export const deleteCampusThunk = campusId => dispatch => {
+    return axios
+        .delete(`/api/campuses/${campusId}`).catch(err => console.log(err))
+        .then(res => res.data)
+        .then(campusId => dispatch(deleteCampus(campusId)));
 };
 
 export const editCampusThunk = editedCampus => dispatch => {

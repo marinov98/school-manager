@@ -1,7 +1,6 @@
 import {
     GET_CAMPUSES,
     ADD_CAMPUS,
-    SEARCH_CAMPUS,
     DELETE_CAMPUS,
     EDIT_CAMPUS
 } from "../actions/types";
@@ -22,31 +21,12 @@ export default (state = initialState, action) => {
                 ...state,
                 campuses: [...state.campuses, action.payload]
             };
-        case SEARCH_CAMPUS:
-            let targetWord = action.payload;
-            let nameArray = state.campuses.filter(campus =>
-                targetWord.includes(campus.Name)
-            );
-            console.log(nameArray);
-            let locationArray = state.campuses.filter(campus =>
-                targetWord.includes(campus.Location)
-            );
-            console.log(locationArray);
-            let filteredArray = nameArray.concat(locationArray);
-            return {
-                ...state,
-                filteredCampuses: filteredArray
-            };
         case DELETE_CAMPUS:
             let copyOfCampusArray = state.campuses;
             let targetCampus = action.payload;
-
-            console.log(action.payload);
-
             let indexOfTargetCampus = copyOfCampusArray.findIndex(
-                campus => campus.Name === targetCampus
+                campus => campus.id === targetCampus
             );
-            console.log(indexOfTargetCampus);
             copyOfCampusArray.splice(indexOfTargetCampus, 1);
             return {
                 ...state,
