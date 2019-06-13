@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./SingleCampus.css";
 import EditCampus from "./EditCampus"
-//import SingleCampusView from "./SingleCampusView"
+import CurrentStudents from './CurrentStudents'
 import AllStudents from "../students/AllStudentsContainer";
 
 class SingleCampus extends Component {
@@ -18,6 +18,7 @@ class SingleCampus extends Component {
     componentDidUpdate = () => {
         console.log("CAMPUS STATE: ");
         console.log(this.state.campus);
+
     }
 
     static getDerivedStateFromProps = (props,prevState) => {
@@ -25,6 +26,7 @@ class SingleCampus extends Component {
         let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.Id === targetCampus);
          let thisCampusObject = props.campus.campuses[indexOfTargetCampus];
          console.log(thisCampusObject);
+         console.log(thisCampusObject.CurrentStudents)
         return { campus: props.campus.campuses[indexOfTargetCampus]};
     };
 
@@ -56,13 +58,18 @@ class SingleCampus extends Component {
     };
     render(){
         console.log(this.state.campus);
+        console.log(this.props.match.id);
         if(!this.state.toggleForm){
             return(
                 <div>
                     <h1 className = "title">Single Campus</h1>
                     {this.displayCampus()}
-                    <button onClick={this.toggleForm}>Edit</button>
-                    <button>Delete</button>
+                    <div className = "buttons">
+                        <button onClick={this.toggleForm}>Edit</button>
+                        <button>Delete</button>
+                    </div>
+                    <AllStudents/>
+                    <CurrentStudents/>
                 </div>
             )
         }
@@ -72,19 +79,12 @@ class SingleCampus extends Component {
                     <button onClick={this.toggleForm}>Go Back</button>
                     {this.displayForm()}
                     <button onClick={this.toggleForm}>Cancel</button>
+                    <AllStudents/>
                 </div>
             )
         }
     }
 }
-
-
-
-
-
-
-
-
 
 const mapStateToProps = state => ({
     campus: state.campus

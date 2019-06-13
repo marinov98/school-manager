@@ -18,7 +18,7 @@ export default class App extends Component {
             <Route path="/students" component={AllStudents} />
             <Route path="/campuses" component={AllCampuses} />
             <Route path="/singlecampus" component={SingleCampus} />
-            <Route path="/singleStudent" component={SingleStudent} />
+            <Route path="/singleStudent/:id" component={SingleStudent} />
           </Route>
         </div>
       </Router>

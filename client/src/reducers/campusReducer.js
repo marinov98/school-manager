@@ -3,7 +3,8 @@ import {
     ADD_CAMPUS,
     SEARCH_CAMPUS,
     DELETE_CAMPUS,
-    EDIT_CAMPUS
+    EDIT_CAMPUS,
+    GET_STUDENTS
 } from "../actions/types";
 
 const initialState = {
@@ -13,9 +14,10 @@ const initialState = {
             Name: "Hunter College",
             Location: "Manhattan",
             CurrentStudents: [
-                {ID: 1, Name: "Mary Fan"},
-                {ID: 2, Name: "Angela Lim"},
-                {ID: 3, Name: "Kris Wu"}
+                //{ID: 1, Name: "Mary Fan"},
+                //{ID: 2, Name: "Angela Lim"},
+                //{ID: 3, Name: "Kris Wu"}
+                {Name: "Mary Fan"}
             ],
             Address: "695 Park Ave, New York, NY 10065",
             Description:
@@ -24,7 +26,7 @@ const initialState = {
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Hunter_College.jpg/215px-Hunter_College.jpg"
         },
         {
-            ID: "2",
+            Id: "2",
             Name: "Baruch College",
             Location: "Manhattan",
             CurrentStudents: [
@@ -34,7 +36,7 @@ const initialState = {
             ]
         },
         {
-            ID: "3",
+            Id: "3",
             Name: "Queens College",
             Location: "Queens",
             CurrentStudents: [
@@ -110,12 +112,12 @@ export default (state = initialState, action) => {
             copyCampusArray[indexOfTargetId].Description =
                 action.payload.Description;
             copyCampusArray[indexOfTargetId].ImageURL = action.payload.ImageURL;
+            copyCampusArray[indexOfTargetId].CurrentStudents = action.payload.CurrentStudents
 
             return {
                 ...state,
                 campuses: copyCampusArray
             };
-
         default:
             return state;
     }
