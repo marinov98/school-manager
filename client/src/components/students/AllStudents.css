@@ -104,6 +104,10 @@
   transform: scale(2.5);
 }
 
+.allStudents .noStudentsFound {
+  text-align: center;
+}
+
 /******************/
 /* SINGLE STUDENT */
 /******************/
