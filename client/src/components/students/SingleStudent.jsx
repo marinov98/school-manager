@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./AllStudents.css";
 import { Link } from "react-router-dom";
+import SingleCampus from "../campuses/SingleCampus";
 
 export default class SingleStudent extends Component {
   constructor(props) {
@@ -12,22 +13,33 @@ export default class SingleStudent extends Component {
       gpa: this.props.gpa,
       id: this.props.id,
       registered: this.props.registered,
-      campus: this.props.campus,
+      campus: "Hunter College",
       tempcampus: "",
-      pictureURL: this.props.pictureURL
+      pictureURL: this.props.pictureURL,
+      render: "",
+      toggleEdit: false
     };
   }
 
   isRegistered = () => {
     if (this.props.registered) {
       return (
-        <h3 className="registered">The student is registered to a campus</h3>
+        <div className="col-sm-4">
+          <h3 className="registered">The student is registered to a campus</h3>
+          <img
+            className="campusPhoto"
+            src={require("../../img/hunter-college.jpg")}
+            alt="Campus"
+          />
+        </div>
       );
     } else {
       return (
-        <h4 className="registered">
-          The student is not registered to a campus
-        </h4>
+        <div className="col-sm-4">
+          <h4 className="registered">
+            The student is not registered to a campus
+          </h4>
+        </div>
       );
     }
   };
@@ -46,6 +58,13 @@ export default class SingleStudent extends Component {
     });
   };
 
+  handleEdit = e => {
+    if (this.state.campus === "") {
+      e.preventDefault();
+      alert("student not registered to a campus");
+    }
+  };
+
   // DISPLAY FUNCTIONS
 
   studentPageTop = () => {
@@ -58,7 +77,13 @@ export default class SingleStudent extends Component {
             className="studentphoto"
           />
         </div>
-        <button className="badge badge-primary btn edit">Edit</button>
+        <Link
+          onClick={this.handleEdit}
+          to="/singlecampus"
+          className="badge badge-primary btn edit"
+        >
+          Edit
+        </Link>
         <button className="badge badge-danger btn delete">Delete</button>
       </div>
     );
@@ -68,14 +93,7 @@ export default class SingleStudent extends Component {
     return (
       <div className="row pageBottom">
         <div className="row campusBox">
-          <div className="col-sm-4">
-            {this.isRegistered()}
-            <img
-              className="campusPhoto"
-              src={require("../../img/hunter-college.jpg")}
-              alt="Campus"
-            />
-          </div>
+          {this.isRegistered()}
           <div className="col-md-8">
             <Link to="/allCampuses" className="campusName">
               {this.state.campus}
