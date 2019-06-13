@@ -7,12 +7,13 @@ const AllStudentsView = props => {
     <div className="allStudentsView">
       {students.map((student, index) => (
         <div className="studentBox" key={index}>
-          <div className="studentName">
-            <h2>
+          <div className="studentTopDiv">
+            <h2 className="studentName">
               <Link to="/id/">
                 {student.firstName} {student.lastName}
               </Link>
             </h2>
+            <h2>X</h2>
           </div>
           <div className="studentCampus">
             <h3>{student.campus}</h3>
