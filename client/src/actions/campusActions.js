@@ -1,29 +1,29 @@
+import axios from "axios";
 import {
     GET_CAMPUSES,
     ADD_CAMPUS,
-    SEARCH_CAMPUS,
     DELETE_CAMPUS,
     EDIT_CAMPUS
 } from "./types";
 
-const addCampus = campus => {
+const getCampuses = campuses => {
+    return {
+        type: GET_CAMPUSES,
+        payload: campuses
+    };
+};
+
+const addCampus = newCampus => {
     return {
         type: ADD_CAMPUS,
-        payload: campus
+        payload: newCampus
     };
 };
 
-const searchCampus = filterWord => {
-    return {
-        type: SEARCH_CAMPUS,
-        payload: filterWord
-    };
-};
-
-const deleteCampus = campusName => {
+const deleteCampus = campusId => {
     return {
         type: DELETE_CAMPUS,
-        payload: campusName
+        payload: campusId
     };
 };
 
@@ -32,20 +32,36 @@ const editCampus = editedCampus => {
         type: EDIT_CAMPUS,
         payload: editedCampus
     }
-}
+};
 
-export const deleteCampusThunk = campusName => dispatch => {
-    return dispatch(deleteCampus(campusName));
+export const getCampusesThunk = () => dispatch => {
+    return axios
+        .get(`/api/campuses`)
+        .then(res => res.data)
+        .then(campuses => dispatch(getCampuses(campuses)))
+        .catch(err => console.log(err));
 };
 
 export const addCampusThunk = newCampus => dispatch => {
-    return dispatch(addCampus(newCampus));
+    return axios
+        .post(`/api/campuses`, newCampus)
+        .then(res => res.data)
+        .then(newCampus => dispatch(addCampus(newCampus)))
+        .catch(err => console.log(err));
 };
 
-export const searchCampusThunk = filterWord => dispatch => {
-    return dispatch(searchCampus(filterWord));
+export const deleteCampusThunk = campusId => dispatch => {
+    return axios
+        .delete(`/api/campuses/${campusId}`).catch(err => console.log(err))
+        .then(res => res.data)
+        .then(campusId => dispatch(deleteCampus(campusId)));
 };
 
 export const editCampusThunk = editedCampus => dispatch => {
-    return dispatch(editCampus(editedCampus));
+    return  axios
+        .put(`api/campuses/`, editedCampus)
+        .then(res => res.data)
+        .then(editedCampus => dispatch(editCampus(editedCampus)))
+        .catch(err => console.log(err))
+
 };

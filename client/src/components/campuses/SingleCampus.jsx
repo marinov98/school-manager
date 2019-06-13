@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./SingleCampus.css";
 import EditCampus from "./EditCampus"
-import CurrentStudents from './CurrentStudents'
+//import CurrentStudents from './CurrentStudents'
 import AllStudents from "../students/AllStudentsContainer";
 
 class SingleCampus extends Component {
@@ -26,7 +26,7 @@ class SingleCampus extends Component {
         let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.Id === targetCampus);
          let thisCampusObject = props.campus.campuses[indexOfTargetCampus];
          console.log(thisCampusObject);
-         console.log(thisCampusObject.CurrentStudents)
+        // console.log(thisCampusObject.CurrentStudents)
         return { campus: props.campus.campuses[indexOfTargetCampus]};
     };
 
@@ -69,7 +69,7 @@ class SingleCampus extends Component {
                         <button>Delete</button>
                     </div>
                     <AllStudents/>
-                    <CurrentStudents/>
+                    
                 </div>
             )
         }

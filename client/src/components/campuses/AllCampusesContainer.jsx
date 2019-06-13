@@ -1,59 +1,35 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import AddCampusForm from "./AddCampusForm";
-import DeleteCampusForm from "./DeleteCampusForm";
 import AllCampusesView from "./AllCampusesView";
-import SearchCampus from "./SearchCampus";
+import { Button } from "reactstrap";
+import { getCampusesThunk } from "../../actions/campusActions";
 
 class AllCampusesContainer extends Component {
     constructor() {
         super();
         this.state = {
-            toggleSearch: false,
-            toggleForm: false,
-            toggleDeleteForm: false
+            toggleForm: false
         };
     }
 
+    componentDidMount = () => {
+        this.props.getCampuses();
+    };
+
     displayCampuses = () => {
-        if (this.state.toggleSearch) {
-            if (this.props.campus.filteredCampuses.length === 0) {
-                return <p>No Results Found</p>
-            }
-            else {
-                return <AllCampusesView campuses={this.props.campus.filteredCampuses} />
-            }
+        if (this.props.campus.campuses.length === 0) {
+            return <p>No Campuses Avaliable</p>
         }
         else {
-            if (this.props.campus.campuses.length === 0) {
-                return <p>No Campuses Avaliable</p>
-            }
-            else {
-                return <AllCampusesView campuses={this.props.campus.campuses} />
-            }
+            return <AllCampusesView />;
         }
     }
-
-    displaySearch = () => {
-        return <SearchCampus />;
-    };
 
     displayForm = () => {
         if (this.state.toggleForm) {
             return <AddCampusForm />;
         }
-    };
-
-    displayDeleteForm = () => {
-        if (this.state.toggleDeleteForm) {
-            return <DeleteCampusForm />;
-        }
-    };
-
-    toggleSearch = () => {
-        this.setState(prevState => ({
-            toggleSearch: !prevState.toggleSearch
-        }));
     };
 
     toggleForm = () => {
@@ -62,36 +38,15 @@ class AllCampusesContainer extends Component {
         }));
     };
 
-    toggleDeleteForm = () => {
-        this.setState(prevState => ({
-            toggleDeleteForm: !prevState.toggleDeleteForm
-        }));
-    };
-
     render() {
-        if (!this.state.toggleSearch) {
-            return (
-                <div>
-                    <h1>All Campuses</h1>
-                    <button onClick={this.toggleSearch}> Search </button>
-                    {this.displayCampuses()}
-                    <button onClick={this.toggleForm}> Add New Campus </button>
-                    {this.displayForm()}
-                    <button onClick={this.toggleDeleteForm}> Delete Campus </button>
-                    {this.displayDeleteForm()}
-                </div>
-            );
-        }
-        else {
-            return (
-                <div>
-                    <h1>All Campuses</h1>
-                    <button onClick={this.toggleSearch}> View All </button>
-                    {this.displaySearch()}
-                    {this.displayCampuses()}
-                </div>
-            );
-        }
+        return (
+            <div>
+                <h1>All Campuses</h1>
+                {this.displayCampuses()}
+                <Button onClick={this.toggleForm}> Add New Campus </Button>
+                {this.displayForm()}
+            </div>
+        );
     }
 }
 
@@ -99,4 +54,13 @@ const mapStateToProps = state => ({
     campus: state.campus
 });
 
-export default connect(mapStateToProps)(AllCampusesContainer);
+const mapDispatchToProps = dispatch => {
+    return {
+        getCampuses: () => dispatch(getCampusesThunk())
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AllCampusesContainer);
