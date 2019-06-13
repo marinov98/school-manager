@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AddCampusForm from "./AddCampusForm";
 import AllCampusesView from "./AllCampusesView";
+import "./AllCampuses.css";
 import { Button } from "reactstrap";
 import { getCampusesThunk } from "../../actions/campusActions";
 
@@ -40,10 +41,10 @@ class AllCampusesContainer extends Component {
 
     render() {
         return (
-            <div>
-                <h1>All Campuses</h1>
+            <div className="allCampuses">
+                <h1 className="allCampusesHeader">All Campuses</h1>
                 {this.displayCampuses()}
-                <Button onClick={this.toggleForm}> Add New Campus </Button>
+                <Button className="addNewCampusButton" onClick={this.toggleForm}> Add New Campus </Button>
                 {this.displayForm()}
             </div>
         );

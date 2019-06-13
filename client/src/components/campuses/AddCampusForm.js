@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addCampusThunk } from "../../actions/campusActions";
+import {
+    Form,
+    Label,
+    Input,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from "reactstrap";
 
 class AddCampusForm extends Component {
     constructor(props) {
@@ -42,38 +51,38 @@ class AddCampusForm extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <input
+            <div className="addCampusForm">
+                <Form>
+                    <Input
                         type="text"
                         name="name"
                         placeholder="Campus Name"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
                         type="text"
                         name="imageURL"
                         placeholder="Image Url"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
                         type="text"
                         name="address"
                         placeholder="Address"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
                         type="text"
                         name="description"
                         placeholder="Description"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
                         type="submit"
                         onClick={this.handleSubmit}
                         value="Add Campus"
                     />
-                </form>
+                </Form>
             </div>
         );
     }
