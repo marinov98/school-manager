@@ -3,7 +3,7 @@ const Student = require("../models").Student;
 module.exports = {
   async create(req, res) {
     return Student.create(req.body)
-      .then(student => res.status(201).json(student))
+      .then(student => res.send(student))
       .catch(error => res.status(400).json(error));
   },
   async list(req, res) {

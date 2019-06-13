@@ -2,7 +2,7 @@ import axios from "axios";
 import { GET_STUDENTS, ADD_STUDENT, REMOVE_STUDENT } from "./types";
 
 // Action Creator:
-// GET students
+
 const getStudents = students => {
   return {
     type: GET_STUDENTS,
@@ -12,7 +12,7 @@ const getStudents = students => {
 
 const addStudent = student => {
   return {
-    type: GET_STUDENTS,
+    type: ADD_STUDENT,
     payload: student
   };
 };
