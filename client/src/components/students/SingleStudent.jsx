@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./AllStudents.css";
 import { Link } from "react-router-dom";
 import SingleCampus from "../campuses/SingleCampus";
+import { connect } from "react-redux";
 
 export default class SingleStudent extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class SingleStudent extends Component {
   }
 
   isRegistered = () => {
-    if (this.props.registered) {
+    if (this.state.campus !== "") {
       return (
         <div className="col-sm-4">
           <h3 className="registered">The student is registered to a campus</h3>
@@ -158,3 +159,24 @@ SingleStudent.propTypes = {
   pictureURL: PropTypes.string,
   id: PropTypes.number.isRequired
 };
+
+// UNCOMMENT THIS WHEN ACTIONS AND THUNKS ARE READY
+
+// const mapStateToProps = state => ({
+//   id: state.id,
+//   name: state.name,
+//   campus: state.campus,
+//   gpa: state.gpa,
+//   pictureUrl: state.pictureUrl,
+//   campusUrl: state.campusUrl
+
+// });
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getStudent: () => dispatch(getStudentThunk())
+//   };
+// };
+
+// // CONNECT TO REDUX STORE
+// export default connect(mapStateToProps,mapDispatchToProps)(SingleStudent);
