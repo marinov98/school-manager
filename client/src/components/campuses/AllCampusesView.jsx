@@ -14,10 +14,10 @@ class AllCampusesView extends Component {
 
     render() {
         return (
-            <div>
+            <div className="allCampusesView">
                 {this.state.campuses.map((campus) => (
-                    <div key={campus.id}>
-                        <Link to="/singlecampus">
+                    <div className="singleCampusSection" key={campus.id}>
+                        <Link to={"/campuses/" + campus.id}>
                             <p>Campus Name: {campus.name}</p>
                             <p>Campus Address: {campus.address}</p>
                         </Link>
@@ -28,7 +28,7 @@ class AllCampusesView extends Component {
             </div>
         );
     }
-};
+}
 
 const mapStateToProps = state => ({
     campus: state.campus

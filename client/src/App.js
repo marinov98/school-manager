@@ -14,11 +14,15 @@ export default class App extends Component {
       <Router>
         <div>
           <NavigationBar />
-          <Route path="/" component={Homepage}>
-            <Route path="/students" component={AllStudents} />
-            <Route path="/campuses" component={AllCampuses} />
-            <Route path="/singlecampus" component={SingleCampus} />
-            <Route path="/singleStudent/:id" component={SingleStudent} />
+          <Route exact path="/" component={Homepage}>
+            <Route exact path="/students" component={AllStudents} />
+            <Route exact path="/campuses" component={AllCampuses} />
+            <Route exact path="/campuses/:campusId" component={SingleCampus} />
+            <Route
+              exact
+              path="/students/:studentId"
+              component={SingleStudent}
+            />
           </Route>
         </div>
       </Router>
