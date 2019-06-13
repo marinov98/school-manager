@@ -19,9 +19,6 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Load seed data onto database
-//require("./server/seeders/seedDatabase")(app);
-
 // Require our routes into the application.
 require("./server/routes")(app);
 
