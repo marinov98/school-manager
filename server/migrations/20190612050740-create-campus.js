@@ -1,48 +1,33 @@
 "use strict";
 module.exports = {
   up: (queryInterface, DataTypes) =>
-    queryInterface.createTable("Students", {
+    queryInterface.createTable("Campuses", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      firstName: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: true
-        }
-      },
-      lastName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true
-        }
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true,
-          isEmail: true
         }
       },
       imageURL: {
         type: DataTypes.STRING,
-        defaultValue: "/img/default_student.jpg"
+        defaultValue: "/img/default_campus.jpg"
       },
-      gpa: {
-        type: DataTypes.DECIMAL,
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
         validate: {
-          min: 0.0,
-          max: 4.0
+          notEmpty: true
         }
       },
-      campus: {
-        type: DataTypes.STRING
+      description: {
+        type: DataTypes.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -54,5 +39,5 @@ module.exports = {
       }
     }),
   down: (queryInterface /* , DataTypes */) =>
-    queryInterface.dropTable("Students")
+    queryInterface.dropTable("Campuses")
 };

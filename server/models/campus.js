@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Campus.associate = models => {
     Campus.hasMany(models.Student, {
-      foreignKey: "campusId"
+      foreignKey: "campusId" // Campus has many Students that use 'campusId' as a foreign key
     });
   };
   return Campus;
