@@ -7,6 +7,7 @@ import AllStudents from "./components/students/AllStudentsContainer";
 import AllCampuses from "./components/campuses/AllCampusesContainer";
 import SingleCampus from "./components/campuses/SingleCampus";
 import SingleStudent from "./components/students/SingleStudent";
+import StudentEditForm from "./components/students/EditStudentForm";
 
 export default class App extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class App extends Component {
             <Route path="/campuses" component={AllCampuses} />
             <Route path="/singlecampus" component={SingleCampus} />
             <Route path="/singleStudent" component={SingleStudent} />
+            <Route path="/studentForm" component={StudentEditForm} />
           </Route>
         </div>
       </Router>

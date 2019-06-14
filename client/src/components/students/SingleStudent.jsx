@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./AllStudents.css";
 import { Link } from "react-router-dom";
-import SingleCampus from "../campuses/SingleCampus";
+import EditStudentForm from "./EditStudentForm";
 import { connect } from "react-redux";
 
 export default class SingleStudent extends Component {
@@ -10,15 +10,7 @@ export default class SingleStudent extends Component {
     super(props);
 
     this.state = {
-      name: this.props.name,
-      gpa: this.props.gpa,
-      id: this.props.id,
-      registered: this.props.registered,
-      campus: "Hunter College",
-      tempcampus: "",
-      pictureURL: this.props.pictureURL,
-      render: "",
-      toggleEdit: false
+      student: {}
     };
   }
 
@@ -80,7 +72,7 @@ export default class SingleStudent extends Component {
         </div>
         <Link
           onClick={this.handleEdit}
-          to="/singlecampus"
+          to="/studentForm"
           className="badge badge-primary btn edit"
         >
           Edit
@@ -97,7 +89,7 @@ export default class SingleStudent extends Component {
           {this.isRegistered()}
           <div className="col-md-8">
             <Link to="/allCampuses" className="campusName">
-              {this.state.campus}
+              {this.state.student.campus}
             </Link>
           </div>
         </div>
@@ -105,21 +97,17 @@ export default class SingleStudent extends Component {
           <div className="select-campus">
             <select
               ref="select"
-              defaultValue={this.state.campus}
+              value="Select"
               onChange={this.handleChange}
               className="selector"
             >
-              <option value={this.state.campus} disabled>
+              <option value="Select" disabled>
                 Select campus...
               </option>
-              <option value="Fung Univerity">Fung University</option>
-              <option value="FAN Mary College">FAN Mary College</option>
-              <option value="Lim Community College">
-                Lim Community College
-              </option>
-              <option value="Marinov State University">
-                Marinov State University
-              </option>
+              <option value="Hunter College">Hunter College</option>
+              <option value="Queens College">Queen College</option>
+              <option value="Brooklyn College">Brooklyn College</option>
+              <option value="Baruch College">Baruch College</option>
             </select>
           </div>
           <button
@@ -138,10 +126,14 @@ export default class SingleStudent extends Component {
       <div className="student">
         <div className="row">
           <div className="col-sm-4">
-            <h1 className="studentname">{this.props.name}</h1>
+            <h1 className="studentname">
+              {this.state.student.firstName}
+              <br />
+              {this.state.student.lastName}
+            </h1>
           </div>
           <div className="col-sm-4">
-            <h4 className="studentGPA">GPA: {this.props.gpa}</h4>{" "}
+            <h4 className="studentGPA">GPA: {this.state.student.gpa}</h4>{" "}
           </div>
         </div>
         {this.studentPageTop()}
@@ -151,26 +143,20 @@ export default class SingleStudent extends Component {
   }
 }
 
-SingleStudent.propTypes = {
-  name: PropTypes.string.isRequired,
-  gpa: PropTypes.number.isRequired,
-  registered: PropTypes.bool.isRequired,
-  campus: PropTypes.string,
-  pictureURL: PropTypes.string,
-  id: PropTypes.number.isRequired
-};
+// SingleStudent.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   gpa: PropTypes.number.isRequired,
+//   registered: PropTypes.bool.isRequired,
+//   campus: PropTypes.string,
+//   pictureURL: PropTypes.string,
+//   id: PropTypes.number.isRequired
+// };
 
 // UNCOMMENT THIS WHEN ACTIONS AND THUNKS ARE READY
 
-// const mapStateToProps = state => ({
-//   id: state.id,
-//   name: state.name,
-//   campus: state.campus,
-//   gpa: state.gpa,
-//   pictureUrl: state.pictureUrl,
-//   campusUrl: state.campusUrl
-
-// });
+const mapStateToProps = state => ({
+  student: state.student
+});
 
 // const mapDispatchToProps = dispatch => {
 //   return {
@@ -178,5 +164,5 @@ SingleStudent.propTypes = {
 //   };
 // };
 
-// // CONNECT TO REDUX STORE
-// export default connect(mapStateToProps,mapDispatchToProps)(SingleStudent);
+// CONNECT TO REDUX STORE
+// export default connect(mapStateToProps)(SingleStudent);
