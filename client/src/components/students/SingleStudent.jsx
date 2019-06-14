@@ -19,6 +19,11 @@ class SingleStudent extends Component {
       match: { params }
     } = this.props;
     console.log(params.studentId); // For example, if I grab student whose id is 62, from localhost:3000/students/62, then params.studentId will return 62. Look at App.js to see the route (/students/:studentId).
+    console.log(this.props);
+    console.log(this.props.student.students);
+    // this.setState((prevState, nextProps) => ({
+    //   student: this.props.student.students[3]
+    // }));
   };
 
   isRegistered = () => {
