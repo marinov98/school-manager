@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addCampusThunk } from "../../actions/campusActions";
+import {
+    Form,
+    Label,
+    Input,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
+} from "reactstrap";
 
 class AddCampusForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Name: "",
-            Location: ""
+            name: "",
+            imageURL: "",
+            address: "",
+            description: ""
         };
         this.initialState = this.state;
     }
@@ -21,12 +32,16 @@ class AddCampusForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
         if (
-            this.state.Name !== this.initialState.Name &&
-            this.state.Location !== this.initialState.Location
+            this.state.name !== this.initialState.name &&
+            this.state.imageURL !== this.initialState.imageURL &&
+            this.state.address !== this.initialState.address &&
+            this.state.description !== this.initialState.description
         ) {
             let newCampus = {
-                Name: this.state.Name,
-                Location: this.state.Location
+                name: this.state.name,
+                imageURL: this.state.imageURL,
+                address: this.state.address,
+                description: this.state.description
             };
             this.props.addCampus(newCampus);
         } else {
@@ -36,26 +51,38 @@ class AddCampusForm extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <input
+            <div className="addCampusForm">
+                <Form>
+                    <Input
                         type="text"
-                        name="Name"
+                        name="name"
                         placeholder="Campus Name"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
                         type="text"
-                        name="Location"
-                        placeholder="Campus Location"
+                        name="imageURL"
+                        placeholder="Image Url"
                         onChange={this.handleChange}
                     />
-                    <input
+                    <Input
+                        type="text"
+                        name="address"
+                        placeholder="Address"
+                        onChange={this.handleChange}
+                    />
+                    <Input
+                        type="text"
+                        name="description"
+                        placeholder="Description"
+                        onChange={this.handleChange}
+                    />
+                    <Input
                         type="submit"
                         onClick={this.handleSubmit}
                         value="Add Campus"
                     />
-                </form>
+                </Form>
             </div>
         );
     }

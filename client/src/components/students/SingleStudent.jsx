@@ -14,6 +14,13 @@ export default class SingleStudent extends Component {
     };
   }
 
+  componentDidMount = () => {
+    const {
+      match: { params }
+    } = this.props;
+    console.log(params.studentId); // For example, if I grab student whose id is 62, from localhost:3000/students/62, then params.studentId will return 62. Look at App.js to see the route (/students/:studentId).
+  };
+
   isRegistered = () => {
     if (this.state.campus !== "") {
       return (
@@ -35,6 +42,10 @@ export default class SingleStudent extends Component {
         </div>
       );
     }
+  };
+
+  componentWillReceiveProps = () => {
+    console.log(this.props.match.props);
   };
 
   handleClick = e => {

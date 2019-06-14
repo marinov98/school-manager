@@ -48,6 +48,7 @@ class AddStudentForm extends Component {
         email: this.state.email,
         gpa: this.state.gpa
       };
+      console.log("adding student");
       this.props.addStudent(newStudent);
     } else {
       alert("Please fill out all the appropriate fields");

@@ -2,13 +2,14 @@ import axios from "axios";
 import {
   GET_STUDENTS,
   ADD_STUDENT,
+  DELETE_STUDENT,
   REMOVE_STUDENT,
   GET_STUDENT,
   EDIT_STUDENT
 } from "./types";
 
 // Action Creator:
-// GET students
+
 const getStudents = students => {
   return {
     type: GET_STUDENTS,
@@ -18,22 +19,23 @@ const getStudents = students => {
 
 const addStudent = student => {
   return {
-    type: GET_STUDENTS,
+    type: ADD_STUDENT,
     payload: student
   };
 };
 
-const getStudent = student => {
+const deleteStudent = studentId => {
+  console.log("running deleteStudent action creator");
   return {
-    type: GET_STUDENT,
-    payload: student
+    type: DELETE_STUDENT,
+    payload: studentId
   };
 };
 
-const editStudent = student => {
+const editStudent = newStudent => {
   return {
     type: EDIT_STUDENT,
-    payload: student
+    payload: newStudent
   };
 };
 
@@ -49,22 +51,20 @@ export const getStudentsThunk = () => dispatch => {
 export const addStudentThunk = newStudent => dispatch => {
   return axios
     .post(`/api/students`, newStudent)
+    .then(res => res.data)
     .then(student => dispatch(addStudent(student)))
     .catch(err => console.log(err));
 };
 
-export const getStudentThunk = student => dispatch => {
+export const deleteStudentThunk = studentId => dispatch => {
+  console.log("running deleteStudentThunk");
   return axios
-    .get(`/api/students`, student)
-    .then(res => res.data)
-    .then(student => dispatch(getStudent(student)))
+    .delete(`/api/students/${studentId}`)
+    .then(res => res.data.id)
+    .then(studentId => dispatch(deleteStudent(studentId)))
     .catch(err => console.log(err));
 };
 
-export const editStudentThunk = student => dispatch => {
-  return axios
-    .get(`/api/students`, student)
-    .then(res => res.data)
-    .then(student => dispatch(editStudent(student)))
-    .catch(err => console.log(err));
+export const editStudentThunk = newStudent => dispatch => {
+  return dispatch(editStudent(newStudent));
 };

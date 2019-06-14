@@ -20,12 +20,21 @@ class SingleCampus extends Component {
         console.log(this.state.campus);
     }
 
-    static getDerivedStateFromProps = (props,prevState) => {
-        let targetCampus = "1";
-        let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.Id === targetCampus);
-         let thisCampusObject = props.campus.campuses[indexOfTargetCampus];
-         console.log(thisCampusObject);
-        return { campus: props.campus.campuses[indexOfTargetCampus]};
+    componentDidMount = () => {
+        const {
+            match: { params }
+        } = this.props;
+        console.log(params.campusId);
+    }
+
+
+    static getDerivedStateFromProps = (props, prevState) => {
+        let targetCampus = 22;
+        let indexOfTargetCampus = props.campus.campuses.findIndex(campus => campus.id === targetCampus);
+        console.log(indexOfTargetCampus);
+        let thisCampusObject = props.campus.campuses[indexOfTargetCampus];
+        console.log(thisCampusObject);
+        return { campus: props.campus.campuses[indexOfTargetCampus] };
     };
 
     displayForm = () => {
@@ -34,13 +43,13 @@ class SingleCampus extends Component {
         }
     };
 
-    displayCampus = () =>{
+    displayCampus = () => {
         return (
             <div>
                 <h1>{this.state.campus.Name}</h1>
                 <img
-                  src={this.state.campus.ImageURL}
-                  style={{ height: "250px", width: "250px" }}
+                    src={this.state.campus.ImageURL}
+                    style={{ height: "250px", width: "250px" }}
                 />
                 <p>{this.state.campus.Description}</p>
                 <p>{this.state.campus.Address}</p>
@@ -54,10 +63,10 @@ class SingleCampus extends Component {
             toggleForm: !prevState.toggleForm
         }));
     };
-    render(){
+    render() {
         console.log(this.state.campus);
-        if(!this.state.toggleForm){
-            return(
+        if (!this.state.toggleForm) {
+            return (
                 <div>
                     <h1>Single Campus</h1>
                     {this.displayCampus()}
@@ -66,8 +75,8 @@ class SingleCampus extends Component {
                 </div>
             )
         }
-        else{
-            return(
+        else {
+            return (
                 <div>
                     <button onClick={this.toggleForm}>Go Back</button>
                     {this.displayForm()}
