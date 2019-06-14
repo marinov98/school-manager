@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import EditStudentForm from "./EditStudentForm";
 import { connect } from "react-redux";
 
-export default class SingleStudent extends Component {
+class SingleStudent extends Component {
   constructor(props) {
     super(props);
 
@@ -178,4 +178,4 @@ const mapStateToProps = state => ({
 // };
 
 // CONNECT TO REDUX STORE
-// export default connect(mapStateToProps)(SingleStudent);
+export default connect(mapStateToProps)(SingleStudent);

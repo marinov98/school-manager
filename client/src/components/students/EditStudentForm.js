@@ -7,11 +7,12 @@ import { connect } from "react-redux";
 const formStyle = {
   textAlign: `center`
 };
-export default class EditStudentForm extends Component {
+class EditStudentForm extends Component {
   constructor(props) {
     super(props);
     // initial values should be that of the student properties
     this.state = {
+      Id: 5,
       firstName: this.props.firstName,
       lastName: this.props.lastName,
       gpa: this.props.gpa,
@@ -41,6 +42,7 @@ export default class EditStudentForm extends Component {
     } else {
       // curr student because the student can be the same after save changes is pressed
       let currStudent = {
+        Id: this.state.id,
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gpa: this.state.gpa,
@@ -143,7 +145,7 @@ const mapDispathToProps = dispatch => {
 };
 
 // UNCOMMENT WHEN REDUX SET UP
-// export default connect(
-//     mapDispathToProps,
-//     mapDispathToProps
-// )(EditStudentForm);
+export default connect(
+  mapDispathToProps,
+  mapDispathToProps
+)(EditStudentForm);
