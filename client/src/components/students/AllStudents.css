@@ -104,6 +104,11 @@
   transform: scale(2.5);
 }
 
+.allStudents .studentDeleteBtn:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 .allStudents .noStudentsFound {
   text-align: center;
 }
