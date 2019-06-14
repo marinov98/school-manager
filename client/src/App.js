@@ -24,6 +24,8 @@ export default class App extends Component {
               path="/students/:studentId"
               component={SingleStudent}
             />
+            <Route exact path="/singleStudent" component={SingleStudent} />
+            <Route exact path="/studentForm" component={StudentEditForm} />
           </Route>
         </div>
       </Router>

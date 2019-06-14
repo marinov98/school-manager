@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { editStudentThunk } from "../../actions/studentActions";
 import { connect } from "react-redux";
 
+const formStyle = {
+  textAlign: `center`
+};
 export default class EditStudentForm extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +15,9 @@ export default class EditStudentForm extends Component {
       firstName: this.props.firstName,
       lastName: this.props.lastName,
       gpa: this.props.gpa,
-      imageURL: this.props.imageURL
+      email: this.props.email,
+      imageURL: this.props.imageURL,
+      campus: this.props.campus
     };
   }
 
@@ -34,10 +39,13 @@ export default class EditStudentForm extends Component {
     ) {
       alert("One or more fields are invalid");
     } else {
+      // curr student because the student can be the same after save changes is pressed
       let currStudent = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         gpa: this.state.gpa,
+        email: this.state.email,
+        campus: this.state.campus,
         imageURL: this.state.imageURL
       };
 
@@ -47,7 +55,7 @@ export default class EditStudentForm extends Component {
 
   render() {
     return (
-      <div>
+      <div style={formStyle} className="editStudentForm">
         <h1>Edit Student</h1>
         <form className="studentEditForm">
           <label> First Name: </label>
@@ -77,12 +85,30 @@ export default class EditStudentForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label>Student URL</label>
+          <label>Student URL: </label>
           <input
             type="text"
             name="imageURL"
             value={this.state.imageURL}
             placeholder="picture URL"
+            onChange={this.handleChange}
+          />
+          <br />
+          <label>Email: </label>
+          <input
+            type="text"
+            name="email"
+            value={this.state.email}
+            placeholder="Email"
+            onChange={this.handleChange}
+          />
+          <br />
+          <label>Campus: </label>
+          <input
+            type="text"
+            name="campus"
+            value={this.state.campus}
+            placeholder="Campus"
             onChange={this.handleChange}
           />
           <br />
