@@ -72,6 +72,8 @@ export default class SingleStudent extends Component {
   // DISPLAY FUNCTIONS
 
   studentPageTop = () => {
+    // NOTE: img below should be changed to this.state.imageURL
+    // when connection to redux store has been made
     return (
       <div className="row pageTop">
         <div className="col-sm-4">
